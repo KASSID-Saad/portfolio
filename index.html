@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio – KASSID SAAD</title>
-  <meta name="description" content="Portfolio de KASSID SAAD, élève ingénieur en informatique à l'EMSI Casablanca. Développement logiciel, IA, projets académiques et stages.">
+  <meta name="description" content="Portfolio de KASSID SAAD, élève ingénieur en informatique à l'EMSI Casablanca.">
   <style>
     :root {
       --bg: #020617;
@@ -97,7 +97,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
       gap: 24px;
       margin-bottom: 32px;
     }
@@ -217,6 +217,8 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      align-items: center;
+      text-align: center;
     }
 
     .info-row {
@@ -231,6 +233,7 @@
     .badges {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 8px;
     }
 
@@ -343,6 +346,38 @@
       color: var(--muted);
       text-align: center;
     }
+
+    /* Avatar / photo */
+    .avatar-wrapper {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      padding: 3px;
+      border: 2px solid rgba(56, 189, 248, 0.7);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .profile-role {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -354,9 +389,7 @@
       </div>
       <nav class="nav-links">
         <a href="#projets">Projets</a>
-        <a href="#experience">Expériences</a>
         <a href="#skills">Compétences</a>
-        <a href="#education">Éducation</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -372,17 +405,17 @@
           <h1 class="hero-title">Élève ingénieur en informatique & IA</h1>
           <p class="hero-tagline">EMSI – Casablanca</p>
           <p class="hero-text">
-            Étudiant en ingénierie informatique à l’EMSI, passionné par la technologie et l’innovation.
-            Je possède de solides compétences en programmation, développement logiciel et intelligence artificielle.
-            Motivé et curieux, je souhaite contribuer à des projets ambitieux au sein d’équipes dynamiques.
+            Étudiant en ingénierie informatique passionné par le développement logiciel,
+            les architectures modernes et l’intelligence artificielle. Je cherche à
+            rejoindre des équipes où je peux apprendre, contribuer rapidement et
+            participer à des projets concrets.
           </p>
           <div class="hero-actions">
-            <!-- IMPORTANT : place ton fichier KASSID_CV.pdf dans le même dossier que cette page -->
             <a class="btn btn-primary" href="KASSID_CV.pdf" download>
               📄 Télécharger mon CV (PDF)
             </a>
             <a class="btn btn-outline" href="#contact">
-              🔗 Voir mes contacts & réseaux
+              🔗 Voir mes contacts
             </a>
           </div>
         </div>
@@ -390,109 +423,69 @@
 
       <aside class="card">
         <div class="card-content side-card">
-          <div>
-            <div class="section-title" style="margin-bottom:4px;">Résumé rapide</div>
-            <p style="font-size:0.9rem;color:#e5e7eb;">
-              Spécialisé en développement web & mobile (Spring Boot, React, Flutter) et en intégration de solutions IA
-              (Flask + ML, Qdrant). Expérience en gestion de projet et travail en équipe à travers plusieurs stages
-              et projets académiques.
-            </p>
+          <div class="avatar-wrapper">
+            <!-- Mets ton image ici : renomme ton fichier en photo.jpg ou change le src -->
+            <img src="photo.jpg" alt="Photo de KASSID SAAD" class="avatar-img">
           </div>
-          <div>
-            <div class="section-title" style="margin-bottom:4px;">Infos</div>
-            <div class="info-row"><strong>Basé à :</strong> <span>Ain Borja, Casablanca, Maroc</span></div>
-            <div class="info-row"><strong>Cycle :</strong> <span>Préparatoire & ingénieur en informatique et réseaux (2021–2026)</span></div>
+          <div class="profile-name">KASSID SAAD</div>
+          <div class="profile-role">Développement web & mobile · IA</div>
+          <div class="info-row">
+            📍 <span>Ain Borja, Casablanca, Maroc</span>
           </div>
-          <div>
-            <div class="section-title" style="margin-bottom:4px;">Focus</div>
-            <div class="badges">
-              <span class="badge badge-accent">Spring Boot & React</span>
-              <span class="badge">Flutter</span>
-              <span class="badge">Django</span>
-              <span class="badge">IA & ML (Flask)</span>
-              <span class="badge">Gestion de projet</span>
-            </div>
+          <div class="info-row">
+            💬 <span>Français, Anglais, Arabe</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-accent">Spring Boot & React</span>
+            <span class="badge">Flutter</span>
+            <span class="badge">Django</span>
+            <span class="badge">Flask + ML</span>
           </div>
         </div>
       </aside>
     </section>
 
     <main>
-      <!-- Colonne gauche : projets + expériences -->
+      <!-- Colonne gauche : projets -->
       <div>
         <!-- Projets -->
         <section id="projets" class="section">
-          <h2 class="section-title">Projets académiques</h2>
+          <h2 class="section-title">Projets principaux</h2>
           <div class="section-card">
             <div class="timeline">
               <div>
-                <div class="timeline-item-title">Application de gestion des dépenses</div>
-                <div class="timeline-meta">2025 • Spring Boot, React</div>
+                <div class="timeline-item-title">Gestion des dépenses</div>
+                <div class="timeline-meta">Spring Boot · React</div>
                 <div class="timeline-desc">
-                  Application web avec interface conviviale pour gérer efficacement les dépenses quotidiennes :
-                  suivi, catégorisation et visualisation des dépenses.
+                  Application web pour suivre et catégoriser les dépenses quotidiennes,
+                  avec visualisation simple des dépenses et historique par mois.
                 </div>
               </div>
 
               <div>
-                <div class="timeline-item-title">Application de streaming de contenu multimédia</div>
-                <div class="timeline-meta">2025 • Spring Boot, React, Flask + ML</div>
+                <div class="timeline-item-title">Plateforme de streaming & recommandations</div>
+                <div class="timeline-meta">Spring Boot · React · Flask + ML</div>
                 <div class="timeline-desc">
-                  Plateforme permettant de rechercher, organiser et suivre films, séries, animés et mangas,
-                  avec recommandations personnalisées basées sur le machine learning.
+                  Recherche et suivi de films, séries et animés, avec moteur de
+                  recommandations basé sur le comportement de l’utilisateur.
                 </div>
               </div>
 
               <div>
-                <div class="timeline-item-title">Application mobile de gestion des absences</div>
-                <div class="timeline-meta">2025 • Flutter</div>
+                <div class="timeline-item-title">App mobile de gestion des absences</div>
+                <div class="timeline-meta">Flutter</div>
                 <div class="timeline-desc">
-                  Application Android intuitive permettant aux professeurs de gérer les absences des étudiants
-                  de manière simple et rapide dans un établissement scolaire.
+                  Application Android pour les enseignants d’un établissement scolaire,
+                  permettant d’enregistrer et consulter les absences des élèves.
                 </div>
               </div>
 
               <div>
                 <div class="timeline-item-title">Avatar intelligent pour showroom</div>
-                <div class="timeline-meta">2025 • Spring Boot, React, Flask + ML</div>
+                <div class="timeline-meta">Spring Boot · React · IA</div>
                 <div class="timeline-desc">
-                  Conception et validation d’un système de gestion des conversations pour un showroom,
-                  avec base de connaissances et modèle d’IA pour répondre aux clients de manière interactive.
-                </div>
-              </div>
-
-              <div>
-                <div class="timeline-item-title">Gestion de stock & présence en ligne (Mobilium)</div>
-                <div class="timeline-meta">2025</div>
-                <div class="timeline-desc">
-                  Développement d’une application de gestion de stock et d’un site web vitrine pour améliorer
-                  la présence en ligne et le suivi des produits de la marque Mobilium.
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Expériences -->
-        <section id="experience" class="section">
-          <h2 class="section-title">Expériences professionnelles</h2>
-          <div class="section-card">
-            <div class="timeline">
-              <div>
-                <div class="timeline-item-title">Stagiaire – Groupe Bennis</div>
-                <div class="timeline-meta">Stage de fin d’année • 1 mois • Casablanca</div>
-                <div class="timeline-desc">
-                  Participation au développement applicatif et à la mise en place de solutions adaptées
-                  aux besoins métier, avec une approche orientée qualité et organisation.
-                </div>
-              </div>
-
-              <div>
-                <div class="timeline-item-title">Stagiaire – Voom Digital</div>
-                <div class="timeline-meta">Stage de fin d’année • 2 mois • Casablanca</div>
-                <div class="timeline-desc">
-                  Participation aux projets digitaux de l’agence, notamment autour du développement web
-                  et de l’intégration de fonctionnalités avancées (gestion de contenu, automatisation, IA).
+                  Système de conversation pour showroom avec base de connaissances
+                  et IA pour répondre aux questions des clients sur les produits.
                 </div>
               </div>
             </div>
@@ -500,7 +493,7 @@
         </section>
       </div>
 
-      <!-- Colonne droite : skills, éducation, contact -->
+      <!-- Colonne droite : compétences + contact -->
       <div>
         <!-- Compétences -->
         <section id="skills" class="section">
@@ -531,31 +524,6 @@
                   Gestion de projet, travail d’équipe, organisation,
                   communication efficace
                 </div>
-              </div>
-              <div>
-                <div class="skills-group-title">Langues</div>
-                <div class="skills-list">
-                  Anglais (avancé), Français (avancé), Arabe (courant)
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Éducation -->
-        <section id="education" class="section">
-          <h2 class="section-title">Éducation</h2>
-          <div class="section-card">
-            <div class="timeline">
-              <div>
-                <div class="timeline-item-title">
-                  Cycle préparatoire & d’ingénieur en informatique et réseaux
-                </div>
-                <div class="timeline-meta">2021 – 2026 • EMSI – Casablanca</div>
-              </div>
-              <div>
-                <div class="timeline-item-title">Baccalauréat Sciences Physiques</div>
-                <div class="timeline-meta">2021 • Groupe Scolaire Addoha – Casablanca</div>
               </div>
             </div>
           </div>
@@ -605,7 +573,6 @@
   </div>
 
   <script>
-    // Afficher l'année actuelle dans le footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
