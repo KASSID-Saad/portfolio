@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – KASSID SAAD</title>
+  <meta name="description" content="Portfolio de KASSID SAAD, élève ingénieur en informatique à l'EMSI Casablanca. Développement logiciel, IA, projets académiques et stages.">
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --card-radius: 18px;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .brand-title {
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75));
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border);
+      padding: 20px 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      margin-bottom: 6px;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-text {
+      font-size: 0.96rem;
+      color: #d1d5db;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+      text-decoration: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 6px rgba(34, 197, 94, 0.9);
+    }
+
+    .side-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-row {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .info-row span {
+      color: var(--text);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .badge-accent {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.8);
+      color: #e0f2fe;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .section-card {
+      background: var(--bg-soft);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 0.92rem;
+    }
+
+    .timeline-item-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+
+    .skills-group-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .skills-list {
+      color: #d1d5db;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-subtitle">Portfolio</div>
+        <div class="brand-title">KASSID SAAD</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#projets">Projets</a>
+        <a href="#experience">Expériences</a>
+        <a href="#skills">Compétences</a>
+        <a href="#education">Éducation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card">
+        <div class="card-content">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Disponible pour opportunités en informatique
+          </div>
+          <h1 class="hero-title">Élève ingénieur en informatique & IA</h1>
+          <p class="hero-tagline">EMSI – Casablanca</p>
+          <p class="hero-text">
+            Étudiant en ingénierie informatique à l’EMSI, passionné par la technologie et l’innovation.
+            Je possède de solides compétences en programmation, développement logiciel et intelligence artificielle.
+            Motivé et curieux, je souhaite contribuer à des projets ambitieux au sein d’équipes dynamiques.
+          </p>
+          <div class="hero-actions">
+            <!-- IMPORTANT : place ton fichier KASSID_CV.pdf dans le même dossier que cette page -->
+            <a class="btn btn-primary" href="KASSID_CV.pdf" download>
+              📄 Télécharger mon CV (PDF)
+            </a>
+            <a class="btn btn-outline" href="#contact">
+              🔗 Voir mes contacts & réseaux
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="card-content side-card">
+          <div>
+            <div class="section-title" style="margin-bottom:4px;">Résumé rapide</div>
+            <p style="font-size:0.9rem;color:#e5e7eb;">
+              Spécialisé en développement web & mobile (Spring Boot, React, Flutter) et en intégration de solutions IA
+              (Flask + ML, Qdrant). Expérience en gestion de projet et travail en équipe à travers plusieurs stages
+              et projets académiques.
+            </p>
+          </div>
+          <div>
+            <div class="section-title" style="margin-bottom:4px;">Infos</div>
+            <div class="info-row"><strong>Basé à :</strong> <span>Ain Borja, Casablanca, Maroc</span></div>
+            <div class="info-row"><strong>Cycle :</strong> <span>Préparatoire & ingénieur en informatique et réseaux (2021–2026)</span></div>
+          </div>
+          <div>
+            <div class="section-title" style="margin-bottom:4px;">Focus</div>
+            <div class="badges">
+              <span class="badge badge-accent">Spring Boot & React</span>
+              <span class="badge">Flutter</span>
+              <span class="badge">Django</span>
+              <span class="badge">IA & ML (Flask)</span>
+              <span class="badge">Gestion de projet</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <!-- Colonne gauche : projets + expériences -->
+      <div>
+        <!-- Projets -->
+        <section id="projets" class="section">
+          <h2 class="section-title">Projets académiques</h2>
+          <div class="section-card">
+            <div class="timeline">
+              <div>
+                <div class="timeline-item-title">Application de gestion des dépenses</div>
+                <div class="timeline-meta">2025 • Spring Boot, React</div>
+                <div class="timeline-desc">
+                  Application web avec interface conviviale pour gérer efficacement les dépenses quotidiennes :
+                  suivi, catégorisation et visualisation des dépenses.
+                </div>
+              </div>
+
+              <div>
+                <div class="timeline-item-title">Application de streaming de contenu multimédia</div>
+                <div class="timeline-meta">2025 • Spring Boot, React, Flask + ML</div>
+                <div class="timeline-desc">
+                  Plateforme permettant de rechercher, organiser et suivre films, séries, animés et mangas,
+                  avec recommandations personnalisées basées sur le machine learning.
+                </div>
+              </div>
+
+              <div>
+                <div class="timeline-item-title">Application mobile de gestion des absences</div>
+                <div class="timeline-meta">2025 • Flutter</div>
+                <div class="timeline-desc">
+                  Application Android intuitive permettant aux professeurs de gérer les absences des étudiants
+                  de manière simple et rapide dans un établissement scolaire.
+                </div>
+              </div>
+
+              <div>
+                <div class="timeline-item-title">Avatar intelligent pour showroom</div>
+                <div class="timeline-meta">2025 • Spring Boot, React, Flask + ML</div>
+                <div class="timeline-desc">
+                  Conception et validation d’un système de gestion des conversations pour un showroom,
+                  avec base de connaissances et modèle d’IA pour répondre aux clients de manière interactive.
+                </div>
+              </div>
+
+              <div>
+                <div class="timeline-item-title">Gestion de stock & présence en ligne (Mobilium)</div>
+                <div class="timeline-meta">2025</div>
+                <div class="timeline-desc">
+                  Développement d’une application de gestion de stock et d’un site web vitrine pour améliorer
+                  la présence en ligne et le suivi des produits de la marque Mobilium.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Expériences -->
+        <section id="experience" class="section">
+          <h2 class="section-title">Expériences professionnelles</h2>
+          <div class="section-card">
+            <div class="timeline">
+              <div>
+                <div class="timeline-item-title">Stagiaire – Groupe Bennis</div>
+                <div class="timeline-meta">Stage de fin d’année • 1 mois • Casablanca</div>
+                <div class="timeline-desc">
+                  Participation au développement applicatif et à la mise en place de solutions adaptées
+                  aux besoins métier, avec une approche orientée qualité et organisation.
+                </div>
+              </div>
+
+              <div>
+                <div class="timeline-item-title">Stagiaire – Voom Digital</div>
+                <div class="timeline-meta">Stage de fin d’année • 2 mois • Casablanca</div>
+                <div class="timeline-desc">
+                  Participation aux projets digitaux de l’agence, notamment autour du développement web
+                  et de l’intégration de fonctionnalités avancées (gestion de contenu, automatisation, IA).
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Colonne droite : skills, éducation, contact -->
+      <div>
+        <!-- Compétences -->
+        <section id="skills" class="section">
+          <h2 class="section-title">Compétences</h2>
+          <div class="section-card">
+            <div class="skills-grid">
+              <div>
+                <div class="skills-group-title">Frameworks</div>
+                <div class="skills-list">
+                  Django, Spring Boot, React, Flutter, .NET
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Langages</div>
+                <div class="skills-list">
+                  HTML, CSS, Java, Python, JavaScript, C++, SQL
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Outils</div>
+                <div class="skills-list">
+                  Git, VS Code, IntelliJ, Postman, StarUML, Qdrant
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Soft skills</div>
+                <div class="skills-list">
+                  Gestion de projet, travail d’équipe, organisation,
+                  communication efficace
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Langues</div>
+                <div class="skills-list">
+                  Anglais (avancé), Français (avancé), Arabe (courant)
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Éducation -->
+        <section id="education" class="section">
+          <h2 class="section-title">Éducation</h2>
+          <div class="section-card">
+            <div class="timeline">
+              <div>
+                <div class="timeline-item-title">
+                  Cycle préparatoire & d’ingénieur en informatique et réseaux
+                </div>
+                <div class="timeline-meta">2021 – 2026 • EMSI – Casablanca</div>
+              </div>
+              <div>
+                <div class="timeline-item-title">Baccalauréat Sciences Physiques</div>
+                <div class="timeline-meta">2021 • Groupe Scolaire Addoha – Casablanca</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact & réseaux -->
+        <section id="contact" class="section">
+          <h2 class="section-title">Contact & réseaux</h2>
+          <div class="section-card">
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Téléphone</span>
+                <a href="tel:+212774430627">+212 7 74 43 06 27</a>
+              </li>
+              <li>
+                <span class="contact-label">Email</span>
+                <!-- Remplace TON_EMAIL_ICI par ton vrai email -->
+                <a href="mailto:TON_EMAIL_ICI">s.kassid2003@gmail.com</a>
+              </li>
+              <li>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/kassid-saad" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/kassid-saad
+                </a>
+              </li>
+              <!-- Tu peux ajouter d'autres réseaux ici :-->
+              <li>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/KASSID-Saad" target="_blank" rel="noopener noreferrer">
+                  github.com/TON_GITHUB
+                </a>
+              </li>
+              
+              <li>
+                <span class="contact-label">CV (PDF)</span>
+                <a href="KASSID_CV.pdf" download>Télécharger mon CV</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      © <span id="year"></span> KASSID SAAD · Portfolio personnel
+    </footer>
+  </div>
+
+  <script>
+    // Afficher l'année actuelle dans le footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
