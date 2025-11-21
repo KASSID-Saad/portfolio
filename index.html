@@ -119,22 +119,23 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Header */
+    /* Header - full width bar */
     header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 16px;
       align-items: center;
-      margin-bottom: 32px;
-      padding: 16px 0;
+      margin: 0 -16px 32px;      /* étire la barre hors des marges du container */
+      padding: 16px 24px;
       position: sticky;
       top: 0;
-      background: rgba(2, 6, 23, 0.8);
+      background: rgba(2, 6, 23, 0.9);
       backdrop-filter: blur(10px);
       z-index: 100;
-      border-radius: 12px;
+      border-radius: 0 0 12px 12px; /* effet de barre */
       animation: slideDown 0.5s ease;
+      border-bottom: 1px solid var(--border);
     }
 
     @keyframes slideDown {
@@ -188,7 +189,7 @@
       padding: 8px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.9);
       cursor: pointer;
       color: var(--text);
       transition: var(--transition);
@@ -806,7 +807,8 @@
     /* Mobile adjustments */
     @media (max-width: 640px) {
       header {
-        padding: 12px;
+        padding: 12px 16px;
+        margin: 0 -16px 24px;
       }
 
       .header-right {
@@ -953,6 +955,14 @@
                     <i class="devicon-cplusplus-plain colored"></i>
                     <span class="skill-label">C++</span>
                   </div>
+                  <div class="skill-icon" title="C#">
+                    <i class="devicon-csharp-plain colored"></i>
+                    <span class="skill-label">C#</span>
+                  </div>
+                  <div class="skill-icon" title="Dart">
+                    <i class="devicon-dart-plain colored"></i>
+                    <span class="skill-label">Dart</span>
+                  </div>
                   <div class="skill-icon" title="HTML5">
                     <i class="devicon-html5-plain colored"></i>
                     <span class="skill-label">HTML</span>
@@ -987,6 +997,11 @@
                     <i class="devicon-dotnetcore-plain colored"></i>
                     <span class="skill-label">.NET</span>
                   </div>
+                  <!-- Angular avec fallback emoji pour être sûr qu'il y ait un visuel -->
+                  <div class="skill-icon" title="Angular">
+                    <span style="font-size: 1.6rem;">🅰️</span>
+                    <span class="skill-label">Angular</span>
+                  </div>
                 </div>
               </div>
 
@@ -1017,9 +1032,240 @@
                     <i class="devicon-docker-plain colored"></i>
                     <span class="skill-label">Docker</span>
                   </div>
+                  <div class="skill-icon" title="StarUML">
+                    <span style="font-size: 1.6rem;">📐</span>
+                    <span class="skill-label">StarUML</span>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="section">
+          <h2 class="section-title" id="section-title-certifications">Certifications</h2>
+          <div class="section-card">
+            <!-- ⚠️ DUPLIQUE LES BLOCS timeline-item CI-DESSOUS
+                 ET REMPLACE LES TEXTES PAR TES VRAIES CERTIFICATIONS LINKEDIN -->
+            <div class="timeline">
+
+                <!-- OCI DevOps -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-oci-title">
+                    Oracle Cloud Infrastructure 2025 Certified DevOps Professional
+                  </div>
+                  <div class="timeline-meta" id="cert-oci-meta">
+                    Oracle · Émise oct. 2025 · Expire oct. 2027
+                  </div>
+                  <div class="timeline-desc" id="cert-oci-desc">
+                    Certification professionnelle sur les concepts DevOps dans Oracle Cloud Infrastructure :
+                    CI/CD, automatisation, supervision, haute disponibilité et bonnes pratiques de déploiement cloud.
+                  </div>
+                </div>
+
+                <!-- IBM Docker Kubernetes -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-docker-title">
+                    Introduction aux conteneurs avec Docker, Kubernetes et OpenShift
+                  </div>
+                  <div class="timeline-meta" id="cert-docker-meta">
+                    IBM · Émise juin 2025
+                  </div>
+                  <div class="timeline-desc" id="cert-docker-desc">
+                    Introduction pratique aux conteneurs et à l’orchestration avec Docker, Kubernetes et OpenShift :
+                    images, pods, déploiements, scaling et gestion des applications cloud-native.
+                  </div>
+                </div>
+
+                <!-- Azure Networks -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-azure-title">
+                    Réseaux virtuels dans Azure
+                  </div>
+                  <div class="timeline-meta" id="cert-azure-meta">
+                    Whizlabs · Émise mai 2025
+                  </div>
+                  <div class="timeline-desc" id="cert-azure-desc">
+                    Principes des réseaux virtuels sur Microsoft Azure : sous-réseaux, sécurité,
+                    routage, VPN et intégration réseau pour les architectures cloud.
+                  </div>
+                </div>
+
+                <!-- Java OOP UPenn -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-javaoop-title">
+                    Introduction à Java et à la programmation orientée objet
+                  </div>
+                  <div class="timeline-meta" id="cert-javaoop-meta">
+                    University of Pennsylvania · Émise déc. 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-javaoop-desc">
+                    Bases du langage Java et de la programmation orientée objet : classes, objets,
+                    héritage, polymorphisme et structures de contrôle.
+                  </div>
+                </div>
+
+                <!-- React Meta -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-react-title">
+                    Les bases de React
+                  </div>
+                  <div class="timeline-meta" id="cert-react-meta">
+                    Meta · Émise déc. 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-react-desc">
+                    Notions fondamentales de React : composants, props, état, hooks de base et création
+                    d’interfaces web modernes et réactives.
+                  </div>
+                </div>
+
+                <!-- Soft Skills IBM -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-softskills-title">
+                    People and Soft Skills for Professional and Personal Success
+                  </div>
+                  <div class="timeline-meta" id="cert-softskills-meta">
+                    IBM · Émise mai 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-softskills-desc">
+                    Développement des soft skills : communication, travail en équipe, leadership,
+                    gestion du conflit et posture professionnelle.
+                  </div>
+                </div>
+
+                <!-- Critical Thinking IBM -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-critical-title">
+                    Solving Problems with Creative and Critical Thinking
+                  </div>
+                  <div class="timeline-meta" id="cert-critical-meta">
+                    IBM · Émise mai 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-critical-desc">
+                    Méthodes de résolution de problèmes complexes en combinant pensée critique et créativité.
+                  </div>
+                </div>
+
+                <!-- Unix -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-unix-title">
+                    L'atelier Unix
+                  </div>
+                  <div class="timeline-meta" id="cert-unix-meta">
+                    Johns Hopkins University · Émise mars 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-unix-desc">
+                    Initiation à Unix : commandes de base, shell, scripts simples et gestion du système.
+                  </div>
+                </div>
+
+                <!-- Python Intro -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-python-title">
+                    Programming for Everybody (Getting Started with Python)
+                  </div>
+                  <div class="timeline-meta" id="cert-python-meta">
+                    University of Michigan · Émise mars 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-python-desc">
+                    Introduction à Python : variables, boucles, conditions et fonctions.
+                  </div>
+                </div>
+
+                <!-- Unix Workbench -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-unixwb-title">
+                    The Unix Workbench
+                  </div>
+                  <div class="timeline-meta" id="cert-unixwb-meta">
+                    Johns Hopkins University · Émise mars 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-unixwb-desc">
+                    Scripts avancés, automatisation et outils Unix pour développeurs.
+                  </div>
+                </div>
+
+                <!-- JS Interactivity -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-js-title">
+                    Interactivité avec JavaScript
+                  </div>
+                  <div class="timeline-meta" id="cert-js-meta">
+                    University of Michigan · Émise janv. 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-js-desc">
+                    Manipulation du DOM, événements, animations et interactivité web.
+                  </div>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-css3-title">
+                    Introduction to CSS3
+                  </div>
+                  <div class="timeline-meta" id="cert-css3-meta">
+                    University of Michigan · Émise janv. 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-css3-desc">
+                    Sélecteurs, layouts, couleurs, typographie et responsive design.
+                  </div>
+                </div>
+
+                <!-- C++ OOP -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-cpp-title">
+                    Introduction à la programmation orientée objet (C++)
+                  </div>
+                  <div class="timeline-meta" id="cert-cpp-meta">
+                    EPFL · Émise janv. 2024
+                  </div>
+                  <div class="timeline-desc" id="cert-cpp-desc">
+                    OOP en C++ : classes, encapsulation, héritage et polymorphisme.
+                  </div>
+                </div>
+
+                <!-- HTML5 -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-html5-title">
+                    Introduction to HTML5
+                  </div>
+                  <div class="timeline-meta" id="cert-html5-meta">
+                    University of Michigan · Émise déc. 2023
+                  </div>
+                  <div class="timeline-desc" id="cert-html5-desc">
+                    Structure HTML5, sémantique, formulaires et bonnes pratiques.
+                  </div>
+                </div>
+
+                <!-- Web Dev UCI -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-webdev-title">
+                    HTML, CSS, and JavaScript for Web Developers
+                  </div>
+                  <div class="timeline-meta" id="cert-webdev-meta">
+                    UC Irvine · Émise avr. 2023
+                  </div>
+                  <div class="timeline-desc" id="cert-webdev-desc">
+                    Formation complète au développement web : HTML, CSS et JavaScript modernes.
+                  </div>
+                </div>
+
+                <!-- SQL -->
+                <div class="timeline-item">
+                  <div class="timeline-item-title" id="cert-sql-title">
+                    The Structured Query Language (SQL)
+                  </div>
+                  <div class="timeline-meta" id="cert-sql-meta">
+                    University of Colorado Boulder · Émise avr. 2023
+                  </div>
+                  <div class="timeline-desc" id="cert-sql-desc">
+                    SQL : SELECT, INSERT, UPDATE, DELETE, JOINS, filtres et manipulation de données.
+                  </div>
+                </div>
+
+              </div>
+
           </div>
         </section>
       </div>
@@ -1215,6 +1461,17 @@
         "skills-languages-title": "Langages",
         "skills-frameworks-title": "Frameworks",
         "skills-tools-title": "Outils",
+        "section-title-certifications": "Certifications",
+        "cert1-title": "Oracle Certified Foundations Associate – Java",
+        "cert1-meta": "Oracle · 2024",
+        "cert1-desc": "Certification d’introduction aux concepts de base de Java, programmation orientée objet, gestion des exceptions et bonnes pratiques de développement.",
+        "cert2-title": "DevOps Foundations – CI/CD & Cloud Basics",
+        "cert2-meta": "LinkedIn Learning · 2023",
+        "cert2-desc": "Notions fondamentales de l’intégration continue / déploiement continu, gestion de versions, automatisation des pipelines et introduction au déploiement sur le cloud.",
+        "cert3-title": "Introduction to Machine Learning",
+        "cert3-meta": "Coursera · 2023",
+        "cert3-desc": "Bases du machine learning supervisé et non supervisé, régression, classification, évaluation des modèles et mise en place de pipelines ML.",
+        "cert-linkedin-text": "Voir toutes mes certifications sur LinkedIn",
         "section-title-projects": "Projets principaux",
         "proj1-title": "Gestion des dépenses",
         "proj1-meta": "Spring Boot · React · PostgreSQL",
@@ -1233,8 +1490,7 @@
         "contact-phone-label": "Téléphone",
         "contact-location-label": "Localisation",
         "contact-location-value": "Ain Borja, Casablanca",
-        "contact-school-label": "École",
-        //"footer-text": "© " + new Date().getFullYear() + " KASSID SAAD · Portfolio personnel"
+        "contact-school-label": "École"
       },
       en: {
         "nav-about": "About",
@@ -1252,6 +1508,17 @@
         "skills-languages-title": "Languages",
         "skills-frameworks-title": "Frameworks",
         "skills-tools-title": "Tools",
+        "section-title-certifications": "Certifications",
+        "cert1-title": "Oracle Certified Foundations Associate – Java",
+        "cert1-meta": "Oracle · 2024",
+        "cert1-desc": "Introduction to core Java concepts: OOP, exception handling and clean coding practices.",
+        "cert2-title": "DevOps Foundations – CI/CD & Cloud Basics",
+        "cert2-meta": "LinkedIn Learning · 2023",
+        "cert2-desc": "Core concepts of continuous integration / continuous delivery, version control, automation and cloud deployment fundamentals.",
+        "cert3-title": "Introduction to Machine Learning",
+        "cert3-meta": "Coursera · 2023",
+        "cert3-desc": "Basics of supervised and unsupervised learning: regression, classification, model evaluation and ML pipelines.",
+        "cert-linkedin-text": "See all my certifications on LinkedIn",
         "section-title-projects": "Main projects",
         "proj1-title": "Expense tracking",
         "proj1-meta": "Spring Boot · React · PostgreSQL",
@@ -1264,14 +1531,78 @@
         "proj3-desc": "Android app for teachers in a school to record and consult students' absences.",
         "proj4-title": "Intelligent avatar for showroom",
         "proj4-meta": "Spring Boot · React · AI (NLP)",
-        "proj4-desc": "Conversation system for a showroom with knowledge base and AI to answer clients' questions about products.",
+        "proj4-desc": "Conversation system for a showroom with a knowledge base and AI to answer clients' questions about products.",
         "section-title-contact": "Contact",
         "contact-email-label": "Email",
         "contact-phone-label": "Phone",
         "contact-location-label": "Location",
         "contact-location-value": "Ain Borja, Casablanca",
         "contact-school-label": "School",
-        "footer-text": "© " + new Date().getFullYear() + " KASSID SAAD · Personal portfolio"
+        "footer-text": "© " + new Date().getFullYear() + " KASSID SAAD · Personal portfolio",
+        "cert-oci-title": "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
+        "cert-oci-meta": "Oracle · Issued Oct 2025 · Expires Oct 2027",
+        "cert-oci-desc": "Professional certification on DevOps concepts in Oracle Cloud Infrastructure: CI/CD, automation, monitoring, high availability and cloud deployment best practices.",
+
+        "cert-docker-title": "Introduction to Containers with Docker, Kubernetes and OpenShift",
+        "cert-docker-meta": "IBM · Issued Jun 2025",
+        "cert-docker-desc": "Practical introduction to containerization and orchestration using Docker, Kubernetes and OpenShift.",
+
+        "cert-azure-title": "Virtual Networks in Azure",
+        "cert-azure-meta": "Whizlabs · Issued May 2025",
+        "cert-azure-desc": "Fundamentals of virtual networks on Microsoft Azure: subnets, routing, VPNs and cloud network integration.",
+
+        "cert-javaoop-title": "Introduction to Java and Object-Oriented Programming",
+        "cert-javaoop-meta": "University of Pennsylvania · Issued Dec 2024",
+        "cert-javaoop-desc": "Java basics and OOP principles: classes, inheritance, polymorphism and control structures.",
+
+        "cert-react-title": "React Basics",
+        "cert-react-meta": "Meta · Issued Dec 2024",
+        "cert-react-desc": "Core React concepts: components, props, state, basic hooks and UI development.",
+
+        "cert-softskills-title": "People and Soft Skills for Professional and Personal Success",
+        "cert-softskills-meta": "IBM · Issued May 2024",
+        "cert-softskills-desc": "Communication, teamwork, leadership, conflict resolution and professional posture.",
+
+        "cert-critical-title": "Solving Problems with Creative and Critical Thinking",
+        "cert-critical-meta": "IBM · Issued May 2024",
+        "cert-critical-desc": "Approaches for solving complex problems using creativity and critical thinking.",
+
+        "cert-unix-title": "The Unix Workshop",
+        "cert-unix-meta": "Johns Hopkins University · Issued Mar 2024",
+        "cert-unix-desc": "Introduction to Unix: shell basics, scripting and file system management.",
+
+        "cert-python-title": "Programming for Everybody (Python)",
+        "cert-python-meta": "University of Michigan · Issued Mar 2024",
+        "cert-python-desc": "Python introduction: variables, loops, conditions and functions.",
+
+        "cert-unixwb-title": "The Unix Workbench",
+        "cert-unixwb-meta": "Johns Hopkins University · Issued Mar 2024",
+        "cert-unixwb-desc": "Advanced Unix scripts, tools and automation for developers.",
+
+        "cert-js-title": "JavaScript Interactivity",
+        "cert-js-meta": "University of Michigan · Issued Jan 2024",
+        "cert-js-desc": "DOM manipulation, events, animations and dynamic UI.",
+
+        "cert-css3-title": "Introduction to CSS3",
+        "cert-css3-meta": "University of Michigan · Issued Jan 2024",
+        "cert-css3-desc": "CSS selectors, layouts, colors, typography and responsive design.",
+
+        "cert-cpp-title": "Introduction to Object-Oriented Programming (C++)",
+        "cert-cpp-meta": "EPFL · Issued Jan 2024",
+        "cert-cpp-desc": "OOP with C++: classes, encapsulation, inheritance and polymorphism.",
+
+        "cert-html5-title": "Introduction to HTML5",
+        "cert-html5-meta": "University of Michigan · Issued Dec 2023",
+        "cert-html5-desc": "HTML5 structure, semantics, forms and best practices.",
+
+        "cert-webdev-title": "HTML, CSS and JavaScript for Web Developers",
+        "cert-webdev-meta": "UC Irvine · Issued Apr 2023",
+        "cert-webdev-desc": "Complete training in modern web development with HTML, CSS and JavaScript.",
+
+        "cert-sql-title": "The Structured Query Language (SQL)",
+        "cert-sql-meta": "University of Colorado Boulder · Issued Apr 2023",
+        "cert-sql-desc": "SQL basics: SELECT, INSERT, UPDATE, DELETE, JOINS and data manipulation.",
+
       }
     };
 
@@ -1280,7 +1611,6 @@
       Object.entries(t).forEach(([id, text]) => {
         const el = document.getElementById(id);
         if (el) {
-          // Handle buttons with nested spans
           if (el.querySelector('span')) {
             el.querySelector('span').textContent = text;
           } else {
