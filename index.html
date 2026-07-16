@@ -3,30 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio – KASSID SAAD | Ingénieur Informatique & IA</title>
-  <meta name="description" content="Portfolio de KASSID SAAD, élève ingénieur en informatique à l'EMSI Casablanca. Spécialisé en développement web, mobile et intelligence artificielle.">
-  
+  <title>Portfolio – KASSID SAAD | Ingénieur en Informatique</title>
+  <meta name="description" content="Portfolio de KASSID SAAD, ingénieur en informatique diplômé de l'EMSI Casablanca. Spécialisé en développement full-stack Java/Spring Boot & React et architecture microservices.">
+
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Portfolio – KASSID SAAD">
-  <meta property="og:description" content="Élève ingénieur en informatique & IA à l'EMSI Casablanca">
+  <meta property="og:description" content="Ingénieur en informatique · Full-Stack Java/Spring Boot & React · Microservices">
   <meta property="og:image" content="photo.jpg">
-  
+
   <!-- Icônes de compétences -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  
+
+  <!-- Applique le thème sauvegardé avant le premier rendu (évite le flash) -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem('portfolio-theme');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+
   <style>
     :root {
-      --bg: #020617;
-      --bg-soft: #0b1120;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --card-radius: 18px;
-      --shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --bg: #04100b;
+      --bg-grad-top: #0a2418;
+      --bg-soft: #081b13;
+      --bg-card: rgba(10, 28, 20, 0.85);
+      --surface: rgba(8, 27, 19, 0.85);
+      --header-bg: rgba(5, 18, 12, 0.75);
+      --card-grad: linear-gradient(150deg, rgba(10, 30, 21, 0.92), rgba(7, 20, 14, 0.8));
+      --featured-grad: linear-gradient(150deg, rgba(13, 40, 28, 0.95), rgba(7, 20, 14, 0.85));
+      --accent: #10b981;
+      --accent-2: #34d399;
+      --accent-3: #059669;
+      --accent-soft: rgba(16, 185, 129, 0.12);
+      --accent-glow: rgba(16, 185, 129, 0.35);
+      --on-accent: #04100b;
+      --text: #e7f0eb;
+      --text-soft: #c5d6cd;
+      --muted: #93a89e;
+      --border: #16342a;
+      --card-radius: 20px;
+      --shadow: 0 18px 40px rgba(2, 12, 8, 0.8);
+      --shadow-hover: 0 14px 35px rgba(2, 12, 8, 0.8);
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg: #f5faf7;
+      --bg-grad-top: #ddf1e7;
+      --bg-soft: #eaf5ef;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --surface: rgba(255, 255, 255, 0.9);
+      --header-bg: rgba(255, 255, 255, 0.78);
+      --card-grad: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(240, 250, 245, 0.88));
+      --featured-grad: linear-gradient(150deg, rgba(236, 253, 245, 0.98), rgba(255, 255, 255, 0.9));
+      --accent: #059669;
+      --accent-2: #059669;
+      --accent-3: #047857;
+      --accent-soft: rgba(5, 150, 105, 0.1);
+      --accent-glow: rgba(5, 150, 105, 0.3);
+      --on-accent: #ffffff;
+      --text: #122a1f;
+      --text-soft: #33493f;
+      --muted: #5c7268;
+      --border: #cbe3d6;
+      --shadow: 0 18px 40px rgba(24, 68, 49, 0.12);
+      --shadow-hover: 0 14px 35px rgba(24, 68, 49, 0.15);
+    }
+
+    [data-theme="light"] .blob {
+      opacity: 0.22;
+    }
+
+    [data-theme="light"] #particles {
+      opacity: 0.3;
     }
 
     * {
@@ -35,70 +86,129 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 50%, #020617 100%);
+      background:
+        radial-gradient(ellipse at top, var(--bg-grad-top) 0%, var(--bg) 55%),
+        var(--bg);
       color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
       line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Animated background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
-      animation: bgPulse 15s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
+    ::selection {
+      background: var(--accent);
+      color: var(--on-accent);
     }
 
-    @keyframes bgPulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 0.8; }
+    /* ===== Animated background blobs ===== */
+    .bg-blobs {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.35;
+      animation: blobFloat 22s ease-in-out infinite;
+    }
+
+    .blob-1 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.35), transparent 70%);
+      top: -120px;
+      left: -100px;
+    }
+
+    .blob-2 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(5, 150, 105, 0.3), transparent 70%);
+      bottom: 10%;
+      right: -120px;
+      animation-delay: -8s;
+    }
+
+    .blob-3 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.22), transparent 70%);
+      top: 45%;
+      left: 30%;
+      animation-delay: -15s;
+    }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(60px, -40px) scale(1.1); }
+      66% { transform: translate(-40px, 50px) scale(0.95); }
+    }
+
+    /* ===== Particle canvas ===== */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
     }
 
     a {
-      color: var(--accent);
+      color: var(--accent-2);
       text-decoration: none;
       transition: var(--transition);
     }
 
     a:hover {
-      color: #0ea5e9;
+      color: var(--accent);
     }
 
     .page-shell {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 16px 40px;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      padding: 0 20px 40px;
       position: relative;
       z-index: 1;
     }
 
-    /* Loading Animation */
-    .loader {
+    /* ===== Scroll progress bar ===== */
+    .scroll-progress {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent-3), var(--accent), var(--accent-2));
+      z-index: 1000;
+      box-shadow: 0 0 12px var(--accent-glow);
+      transition: width 0.1s linear;
+    }
+
+    /* ===== Loader ===== */
+    .loader {
+      position: fixed;
+      inset: 0;
       background: var(--bg);
       display: flex;
+      flex-direction: column;
+      gap: 20px;
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
     .loader.hidden {
@@ -106,145 +216,196 @@
       visibility: hidden;
     }
 
-    .loader-spinner {
-      width: 50px;
-      height: 50px;
-      border: 4px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+    .loader-logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: loaderPulse 1.2s ease-in-out infinite;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    @keyframes loaderPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.97); }
     }
 
-    /* Header - full width bar */
+    .loader-bar {
+      width: 180px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--border);
+      overflow: hidden;
+    }
+
+    .loader-bar::after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-3), var(--accent-2));
+      animation: loaderSlide 1s ease-in-out infinite;
+    }
+
+    @keyframes loaderSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(450%); }
+    }
+
+    /* ===== Header ===== */
     header {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 16px;
       align-items: center;
-      margin: 0 -16px 32px;      /* étire la barre hors des marges du container */
-      padding: 16px 24px;
-      position: sticky;
-      top: 0;
-      background: rgba(2, 6, 23, 0.9);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      border-radius: 0 0 12px 12px; /* effet de barre */
-      animation: slideDown 0.5s ease;
-      border-bottom: 1px solid var(--border);
+      gap: 14px;
+      margin: 16px 0 40px;
+      padding: 12px 22px;
+      border-radius: 18px;
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-hover);
+      animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 0.15s;
     }
 
     @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-28px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 2px;
     }
 
     .brand-title {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent), var(--accent-3));
+      background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .brand-subtitle {
-      font-size: 0.98rem;
+      font-size: 0.68rem;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.28em;
     }
 
     .header-right {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.9rem;
+      gap: 6px;
+      font-size: 0.86rem;
     }
 
     .nav-link {
-      padding: 8px 16px;
+      padding: 8px 15px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid transparent;
+      background: transparent;
       cursor: pointer;
-      color: var(--text);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-family: inherit;
       transition: var(--transition);
       position: relative;
-      overflow: hidden;
     }
 
-    .nav-link::before {
+    .nav-link::after {
       content: "";
       position: absolute;
-      top: 50%;
       left: 50%;
+      bottom: 3px;
       width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(56, 189, 248, 0.1);
-      transform: translate(-50%, -50%);
-      transition: width 0.3s ease, height 0.3s ease;
-    }
-
-    .nav-link:hover::before {
-      width: 200px;
-      height: 200px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
     }
 
     .nav-link:hover {
-      border-color: var(--accent);
-      background: rgba(56, 189, 248, 0.08);
-      transform: translateY(-2px);
+      color: var(--text);
+    }
+
+    .nav-link:hover::after {
+      width: 55%;
     }
 
     .nav-link-active {
-      border-color: var(--accent);
-      background: rgba(56, 189, 248, 0.12);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      color: var(--accent-2);
+      border-color: var(--border);
+      background: var(--accent-soft);
     }
 
     .lang-switch {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       padding: 3px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--surface);
       border: 1px solid var(--border);
+    }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: rotate(25deg) scale(1.08);
     }
 
     .lang-btn {
       border: none;
       background: transparent;
       color: var(--muted);
-      font-size: 0.78rem;
-      padding: 6px 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 6px 11px;
       border-radius: 999px;
       cursor: pointer;
+      font-family: inherit;
       transition: var(--transition);
     }
 
@@ -253,41 +414,70 @@
     }
 
     .lang-btn-active {
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--on-accent);
     }
 
-    /* Cards & layout */
+    /* ===== Reveal on scroll ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0s);
+      will-change: opacity, transform;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal-left.visible {
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal-right.visible {
+      transform: translateX(0);
+    }
+
+    /* ===== Cards ===== */
     .card {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75));
+      background: var(--card-grad);
       border-radius: var(--card-radius);
       border: 1px solid var(--border);
-      padding: 24px 20px;
+      padding: 28px 26px;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
       transition: var(--transition);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.9), 0 0 40px rgba(56, 189, 248, 0.1);
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%);
-      opacity: 0.4;
+      background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.14), transparent 55%);
+      opacity: 0.5;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(16, 185, 129, 0.35);
+      box-shadow: var(--shadow-hover), 0 0 45px rgba(16, 185, 129, 0.12);
     }
 
     .card:hover::before {
-      opacity: 0.6;
+      opacity: 0.85;
     }
 
     .card-content {
@@ -295,25 +485,13 @@
       z-index: 1;
     }
 
+    /* ===== Hero ===== */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
-      gap: 24px;
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+      gap: 26px;
+      margin-bottom: 70px;
+      align-items: stretch;
     }
 
     @media (max-width: 800px) {
@@ -322,39 +500,115 @@
       }
     }
 
-    .hero-title {
-      font-size: clamp(1.6rem, 2.4vw, 2rem);
-      margin-bottom: 8px;
-      line-height: 1.3;
+    .hero-card {
+      animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 0.35s;
     }
 
-    .hero-tagline {
-      font-size: 1.05rem;
-      color: var(--muted);
+    .hero-side {
+      animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(45px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      background: var(--accent-soft);
+      font-size: 0.8rem;
+      color: var(--accent-2);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.7; }
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4.4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent), var(--accent-3));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 5s ease infinite;
+    }
+
+    .hero-typed {
+      font-size: clamp(1.02rem, 2vw, 1.25rem);
+      color: var(--accent-2);
+      font-weight: 600;
+      min-height: 1.7em;
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .typed-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.15em;
+      margin-left: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      animation: blink 0.85s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .hero-text {
-      font-size: 0.96rem;
-      color: #d1d5db;
-      margin-bottom: 20px;
-      line-height: 1.7;
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      line-height: 1.75;
+      max-width: 56ch;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-bottom: 28px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 999px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
+      font-family: inherit;
       border: 1px solid transparent;
       cursor: pointer;
       text-decoration: none;
@@ -372,91 +626,114 @@
       width: 0;
       height: 0;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       transform: translate(-50%, -50%);
-      transition: width 0.4s ease, height 0.4s ease;
+      transition: width 0.5s ease, height 0.5s ease;
     }
 
     .btn:hover::before {
-      width: 300px;
-      height: 300px;
+      width: 320px;
+      height: 320px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      color: #0b1120;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      color: var(--on-accent);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5);
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.5);
     }
 
     .btn-outline {
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--surface);
       color: var(--text);
       border-color: var(--border);
     }
 
     .btn-outline:hover {
       border-color: var(--accent);
-      background: rgba(56, 189, 248, 0.1);
-      transform: translateY(-2px);
+      background: var(--accent-soft);
+      transform: translateY(-3px);
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.9);
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.8; }
-    }
-
-    .side-card {
-      display: flex;
-      flex-direction: column;
+    /* ===== Stats ===== */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      align-items: center;
-      text-align: center;
     }
 
-    .avatar-wrapper {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      padding: 4px;
-      border: 3px solid rgba(56, 189, 248, 0.7);
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.9), 0 0 30px rgba(56, 189, 248, 0.3);
-      overflow: hidden;
-      margin-bottom: 10px;
-      position: relative;
+    .stat {
+      text-align: center;
+      padding: 14px 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
       transition: var(--transition);
     }
 
-    .avatar-wrapper:hover {
-      transform: scale(1.05) rotate(5deg);
-      border-color: var(--accent);
-      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.95), 0 0 40px rgba(56, 189, 248, 0.5);
+    .stat:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      transform: translateY(-3px);
+      background: var(--accent-soft);
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent-2);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ===== Side profile card ===== */
+    .side-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .avatar-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      padding: 5px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .avatar-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--accent), transparent 30%, var(--accent-2) 50%, transparent 80%, var(--accent));
+      animation: ringSpin 5s linear infinite;
+    }
+
+    @keyframes ringSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--bg-soft);
     }
 
     .avatar-img {
@@ -465,27 +742,27 @@
       object-fit: cover;
       border-radius: 50%;
       display: block;
+      position: relative;
+      z-index: 1;
       transition: var(--transition);
     }
 
     .avatar-wrapper:hover .avatar-img {
-      transform: scale(1.1);
+      transform: scale(1.06);
     }
 
     .profile-name {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-size: 1.25rem;
+      font-weight: 700;
     }
 
     .profile-role {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--muted);
-      margin-bottom: 10px;
     }
 
     .info-row {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--muted);
       display: flex;
       align-items: center;
@@ -496,26 +773,34 @@
       color: var(--text);
     }
 
-    /* Sections */
-    .section {
-      margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards;
+    .side-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 6px;
     }
 
-    .section:nth-child(1) { animation-delay: 0.3s; }
-    .section:nth-child(2) { animation-delay: 0.4s; }
-    .section:nth-child(3) { animation-delay: 0.5s; }
+    /* ===== Sections ===== */
+    .section {
+      margin-bottom: 70px;
+      scroll-margin-top: 100px;
+    }
 
     .section-title {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 12px;
+      font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+      font-weight: 800;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+    }
+
+    .section-title .num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
     }
 
     .section-title::after {
@@ -525,87 +810,314 @@
       background: linear-gradient(to right, var(--border), transparent);
     }
 
-    .section-card {
-      background: var(--bg-soft);
-      border-radius: var(--card-radius);
-      border: 1px solid var(--border);
-      padding: 20px;
-      transition: var(--transition);
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 26px;
     }
 
-    .section-card:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
-    }
-
+    /* ===== Experience timeline ===== */
     .timeline {
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      font-size: 0.92rem;
+      gap: 26px;
+      padding-left: 34px;
     }
 
-    .timeline-item {
-      padding: 16px;
-      border-left: 3px solid var(--border);
-      padding-left: 20px;
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+      border-radius: 2px;
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+    }
+
+    .timeline.visible::before {
+      transform: scaleY(1);
+    }
+
+    .exp-item {
+      position: relative;
+    }
+
+    .exp-item::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 26px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 14px var(--accent-glow);
+      z-index: 2;
       transition: var(--transition);
-      border-radius: 0 8px 8px 0;
     }
 
-    .timeline-item:hover {
-      border-left-color: var(--accent);
-      background: rgba(56, 189, 248, 0.05);
+    .exp-item:hover::before {
+      background: var(--accent);
+      transform: scale(1.25);
+    }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px 26px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
       transform: translateX(8px);
+      box-shadow: var(--shadow-hover), 0 0 35px rgba(16, 185, 129, 0.08);
     }
 
-    .timeline-item-title {
-      font-weight: 600;
+    .exp-featured {
+      border-color: rgba(16, 185, 129, 0.45);
+      background: var(--featured-grad);
+    }
+
+    .exp-featured::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-3), var(--accent-2), var(--accent-3));
+      background-size: 200% 100%;
+      animation: gradientShift 4s linear infinite;
+    }
+
+    .exp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--on-accent);
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
       margin-bottom: 4px;
-      font-size: 1.05rem;
     }
 
-    .timeline-meta {
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 6px;
-      font-weight: 500;
+    .exp-title {
+      font-size: 1.12rem;
+      font-weight: 700;
     }
 
-    .timeline-desc {
+    .exp-duration {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--accent-2);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--accent-2);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .exp-desc {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .exp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 16px;
+    }
+
+    .exp-list li {
       font-size: 0.9rem;
-      color: #d1d5db;
-      line-height: 1.6;
+      color: var(--text-soft);
+      line-height: 1.65;
+      padding-left: 22px;
+      position: relative;
     }
 
-    /* Skills with icons */
+    .exp-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+      color: var(--accent-2);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.08);
+      padding: 4px 11px;
+      border-radius: 999px;
+      transition: var(--transition);
+    }
+
+    .tag:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Projects grid ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.25s ease-out, border-color 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(16, 185, 129, 0.1), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: var(--shadow-hover), 0 0 35px rgba(16, 185, 129, 0.1);
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 13px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-icon {
+      transform: scale(1.12) rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+    }
+
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .project-desc {
+      font-size: 0.89rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* ===== Skills ===== */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      font-size: 0.88rem;
     }
 
     .skills-group {
-      opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 22px;
+      transition: var(--transition);
     }
 
-    .skills-group:nth-child(1) { animation-delay: 0.1s; }
-    .skills-group:nth-child(2) { animation-delay: 0.2s; }
-    .skills-group:nth-child(3) { animation-delay: 0.3s; }
+    .skills-group:hover {
+      border-color: rgba(16, 185, 129, 0.35);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
 
     .skills-group-title {
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: 1rem;
-      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skills-group-title::before {
+      content: "";
+      width: 6px;
+      height: 18px;
+      border-radius: 3px;
+      background: linear-gradient(to bottom, var(--accent-2), var(--accent-3));
     }
 
     .skill-icons-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .skill-icon {
@@ -613,29 +1125,36 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      padding: 10px 8px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      min-width: 62px;
+      padding: 12px 8px;
+      border-radius: 13px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      min-width: 68px;
       transition: var(--transition);
-      cursor: pointer;
+      cursor: default;
     }
 
     .skill-icon:hover {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-6px) scale(1.06);
       border-color: var(--accent);
-      background: rgba(56, 189, 248, 0.1);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+      background: var(--accent-soft);
+      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.2);
     }
 
-    .skill-icon i {
-      font-size: 1.6rem;
+    .skill-icon i,
+    .skill-icon .skill-emoji {
+      font-size: 1.7rem;
       transition: var(--transition);
+      line-height: 1;
     }
 
-    .skill-icon:hover i {
-      transform: scale(1.2);
+    .skill-icon:hover i,
+    .skill-icon:hover .skill-emoji {
+      transform: scale(1.2) rotate(6deg);
+    }
+
+    .devicon-flask-original {
+      color: var(--text);
     }
 
     .skill-label {
@@ -644,78 +1163,184 @@
       font-weight: 500;
     }
 
-    /* Contact Section */
+    /* ===== Certifications ===== */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--accent-2), var(--accent-3));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.35s ease;
+    }
+
+    .cert-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .cert-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .cert-title {
+      font-weight: 600;
+      font-size: 0.94rem;
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+
+    .cert-meta {
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      font-weight: 500;
+    }
+
+    /* ===== Education ===== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 22px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+
+    .edu-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .edu-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .edu-title {
+      font-weight: 700;
+      font-size: 0.98rem;
+      margin-bottom: 3px;
+    }
+
+    .edu-meta {
+      font-size: 0.82rem;
+      color: var(--accent-2);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .edu-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ===== Contact ===== */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 16px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.6);
+      gap: 14px;
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--bg-card);
       border: 1px solid var(--border);
       transition: var(--transition);
     }
 
     .contact-item:hover {
       border-color: var(--accent);
-      background: rgba(56, 189, 248, 0.08);
-      transform: translateY(-3px);
+      background: var(--accent-soft);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
     }
 
     .contact-icon {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
       border-radius: 50%;
-      background: rgba(56, 189, 248, 0.1);
+      background: var(--accent-soft);
+      border: 1px solid rgba(16, 185, 129, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover .contact-icon {
+      transform: scale(1.12) rotate(-8deg);
     }
 
     .contact-info {
       flex: 1;
+      min-width: 0;
     }
 
     .contact-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
 
     .contact-value {
       font-size: 0.9rem;
       color: var(--text);
       margin-top: 2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    /* Multi-page views */
-    .page-main {
-      flex: 1 0 auto;
-    }
-
-    .page-view {
-      display: none;
-    }
-
-    .page-view-active {
-      display: block;
-    }
-
-    /* Footer + social icons */
+    /* ===== Footer ===== */
     footer {
-      flex-shrink: 0;
-      margin-top: 40px;
-      padding-top: 20px;
+      margin-top: 30px;
+      padding-top: 24px;
       border-top: 1px solid var(--border);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
@@ -729,86 +1354,72 @@
 
     .social-icons {
       display: flex;
-      gap: 12px;
+      gap: 10px;
     }
 
     .social-icon-btn {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(15, 23, 42, 0.9);
+      background: var(--surface);
       transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .social-icon-btn::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .social-icon-btn:hover::before {
-      opacity: 0.1;
     }
 
     .social-icon-btn:hover {
       border-color: var(--accent);
-      transform: translateY(-3px) rotate(10deg);
-      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+      background: var(--accent-soft);
+      transform: translateY(-4px) rotate(8deg);
+      box-shadow: 0 10px 24px rgba(16, 185, 129, 0.3);
     }
 
     .social-icon-initial {
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--text);
-      position: relative;
-      z-index: 1;
     }
 
-    /* Scroll to top button */
+    /* ===== Scroll to top ===== */
     .scroll-top {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      width: 45px;
-      height: 45px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
       border: none;
-      color: var(--bg);
+      color: var(--on-accent);
       font-size: 1.2rem;
+      font-weight: 700;
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
+      transform: translateY(15px);
       transition: var(--transition);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
       z-index: 99;
     }
 
     .scroll-top.visible {
       opacity: 1;
       visibility: visible;
+      transform: translateY(0);
     }
 
     .scroll-top:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.6);
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.55);
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 640px) {
+    /* ===== Mobile ===== */
+    @media (max-width: 720px) {
       header {
+        top: 8px;
         padding: 12px 16px;
-        margin: 0 -16px 24px;
       }
 
       .header-right {
@@ -817,20 +1428,32 @@
       }
 
       .nav-links {
-        width: 100%;
-        justify-content: center;
+        gap: 2px;
       }
 
-      .hero {
-        gap: 20px;
+      .nav-link {
+        padding: 7px 10px;
+        font-size: 0.8rem;
       }
 
       .card {
-        padding: 18px 16px;
+        padding: 22px 18px;
       }
 
-      .skills-grid {
-        grid-template-columns: 1fr;
+      .exp-card:hover {
+        transform: none;
+      }
+
+      .timeline {
+        padding-left: 28px;
+      }
+
+      .exp-item::before {
+        left: -26px;
+      }
+
+      .hero-stats {
+        gap: 10px;
       }
 
       .footer-row {
@@ -842,12 +1465,36 @@
       .scroll-top {
         bottom: 20px;
         right: 20px;
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
       }
     }
 
-    /* Print styles */
+    /* ===== Reduced motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      #particles {
+        display: none;
+      }
+    }
+
+    /* ===== Print ===== */
     @media print {
       body {
         background: white;
@@ -857,6 +1504,8 @@
       .nav-links,
       .lang-switch,
       .scroll-top,
+      #particles,
+      .bg-blobs,
       footer {
         display: none;
       }
@@ -864,521 +1513,528 @@
   </style>
 </head>
 <body>
-  <!-- Loading animation -->
+  <!-- Loader -->
   <div class="loader" id="loader">
-    <div class="loader-spinner"></div>
+    <div class="loader-logo">KASSID SAAD</div>
+    <div class="loader-bar"></div>
   </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Animated background -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <canvas id="particles"></canvas>
 
   <div class="page-shell">
     <header>
       <div class="brand">
-        <div class="brand-subtitle">Portfolio</div>
         <div class="brand-title">KASSID SAAD</div>
+        <div class="brand-subtitle" data-i18n="brand-subtitle">Ingénieur en Informatique</div>
       </div>
       <div class="header-right">
         <nav class="nav-links" role="navigation" aria-label="Main navigation">
-          <button class="nav-link nav-link-active" data-view="about" id="nav-about" aria-label="About page">À propos</button>
-          <button class="nav-link" data-view="projects" id="nav-projects" aria-label="Projects page">Projets</button>
-          <button class="nav-link" data-view="contact" id="nav-contact" aria-label="Contact page">Contact</button>
+          <a class="nav-link" href="#about" data-i18n="nav-about">À propos</a>
+          <a class="nav-link" href="#experience" data-i18n="nav-experience">Expérience</a>
+          <a class="nav-link" href="#projects" data-i18n="nav-projects">Projets</a>
+          <a class="nav-link" href="#skills" data-i18n="nav-skills">Compétences</a>
+          <a class="nav-link" href="#contact" data-i18n="nav-contact">Contact</a>
         </nav>
         <div class="lang-switch" role="group" aria-label="Language selector">
-          <button class="lang-btn lang-btn-active" data-lang="fr" aria-label="French">FR</button>
+          <button class="lang-btn lang-btn-active" data-lang="fr" aria-label="Français">FR</button>
           <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
         </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
       </div>
     </header>
 
-    <main class="page-main">
-      <!-- PAGE 1 : À PROPOS -->
-      <div id="page-about" class="page-view page-view-active">
-        <section class="hero">
-          <div class="card">
-            <div class="card-content">
-              <div class="pill">
-                <span class="pill-dot"></span>
-                <span id="pill-text">Disponible pour opportunités en informatique</span>
+    <main>
+      <!-- ===== HERO / ABOUT ===== -->
+      <section class="hero section" id="about">
+        <div class="card hero-card">
+          <div class="card-content">
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span data-i18n="pill-text">Disponible pour de nouvelles opportunités</span>
+            </div>
+            <h1 class="hero-title">
+              <span data-i18n="hero-greeting">Bonjour, je suis</span><br>
+              <span class="gradient-text">KASSID SAAD</span>
+            </h1>
+            <div class="hero-typed">
+              <span id="typed-text"></span><span class="typed-cursor"></span>
+            </div>
+            <p class="hero-text" data-i18n="hero-text">
+              Ingénieur en informatique diplômé de l'EMSI, spécialisé en développement
+              full-stack (Java / Spring Boot &amp; React) et en architecture microservices.
+              Lors de mon PFE à la Banque Centrale Populaire, j'ai conçu une plateforme de
+              supervision qui a transformé un traitement manuel de fichiers de crédit en un
+              suivi automatisé en temps réel. Rigoureux et curieux, je cherche à relever des
+              défis techniques ambitieux au sein d'équipes dynamiques.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="CV_KASSID_SAAD_ingenieur.pdf" download>
+                📄 <span data-i18n="hero-btn-cv">Télécharger mon CV</span>
+              </a>
+              <a class="btn btn-outline" href="#contact">
+                ✉️ <span data-i18n="hero-btn-contact">Me contacter</span>
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-value"><span class="counter" data-target="3">0</span></div>
+                <div class="stat-label" data-i18n="stat-exp">Expériences pro</div>
               </div>
-              <h1 class="hero-title" id="hero-title">Élève ingénieur en informatique & IA</h1>
-              <p class="hero-tagline" id="hero-tagline">EMSI – Casablanca</p>
-              <p class="hero-text" id="hero-text">
-                Étudiant en ingénierie informatique passionné par le développement logiciel,
-                les architectures modernes et l'intelligence artificielle. Je cherche à
-                rejoindre des équipes où je peux apprendre, contribuer rapidement et
-                participer à des projets concrets.
+              <div class="stat">
+                <div class="stat-value"><span class="counter" data-target="16">0</span>+</div>
+                <div class="stat-label" data-i18n="stat-certs">Certifications</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value"><span class="counter" data-target="5">0</span>+</div>
+                <div class="stat-label" data-i18n="stat-years">Années de formation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card hero-side">
+          <div class="card-content side-card">
+            <div class="avatar-wrapper">
+              <img src="photo.jpg" alt="Photo de KASSID SAAD" class="avatar-img" loading="lazy">
+            </div>
+            <div class="profile-name">KASSID SAAD</div>
+            <div class="profile-role" data-i18n="profile-role">Full-Stack · Microservices · IA</div>
+            <div class="info-row">
+              📍 <span data-i18n="info-location">Casablanca, Maroc</span>
+            </div>
+            <div class="info-row">
+              🎓 <span>EMSI — 2021–2026</span>
+            </div>
+            <div class="side-badges">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">React</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section class="section" id="experience">
+        <h2 class="section-title reveal"><span class="num">01</span><span data-i18n="section-title-experience">Expérience professionnelle</span></h2>
+        <p class="section-sub reveal" data-i18n="section-sub-experience">Mon parcours en entreprise, du stage d'initiation au projet de fin d'études.</p>
+
+        <div class="timeline reveal" id="expTimeline">
+          <!-- PFE — Banque Centrale Populaire -->
+          <div class="exp-item reveal" style="--reveal-delay: 0.1s">
+            <div class="exp-card exp-featured">
+              <span class="exp-badge">★ <span data-i18n="exp1-badge">Dernière expérience</span></span>
+              <div class="exp-header">
+                <div class="exp-title" data-i18n="exp1-title">Développeur Full-Stack — Stage PFE</div>
+                <span class="exp-duration" data-i18n="exp1-duration">6 mois · 2026</span>
+              </div>
+              <div class="exp-company" data-i18n="exp1-company">Banque Centrale Populaire — DSI Engagements &amp; Risques, Casablanca</div>
+              <p class="exp-desc" data-i18n="exp1-desc">
+                Conception full-stack de la « File Monitoring App », une plateforme de supervision
+                automatisée des traitements batch de crédits (système Evolan), qui a remplacé un
+                processus manuel sous Excel par un suivi en temps réel.
               </p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="KASSID_CV.pdf" download id="hero-btn-cv">
-                  📄 <span>Télécharger mon CV</span>
-                </a>
-                <button class="btn btn-outline" data-view="contact" id="hero-btn-contact">
-                  ✉️ <span>Me contacter</span>
-                </button>
+              <ul class="exp-list">
+                <li data-i18n="exp1-li1">Développement de 6 jobs Spring Batch automatisant le parsing de milliers de lignes d'anomalies auparavant traitées manuellement sous Excel.</li>
+                <li data-i18n="exp1-li2">Détection des anomalies en temps réel au lieu de la mi-matinée, grâce à un tableau de bord live construit en React.</li>
+                <li data-i18n="exp1-li3">Mise en place de la sécurité JWT et d'une traçabilité complète des traitements.</li>
+                <li data-i18n="exp1-li4">Résultat : un meilleur contrôle du risque de crédit pour la banque.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Spring Batch</span>
+                <span class="tag">React</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+                <span class="tag">API REST</span>
+                <span class="tag">JWT</span>
               </div>
             </div>
           </div>
 
-          <aside class="card">
-            <div class="card-content side-card">
-              <div class="avatar-wrapper">
-                <img src="photo.jpg" alt="Photo de KASSID SAAD" class="avatar-img" loading="lazy">
+          <!-- Voom Digital -->
+          <div class="exp-item reveal" style="--reveal-delay: 0.2s">
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title" data-i18n="exp2-title">Stage de fin d'année — Développeur IA</div>
+                <span class="exp-duration" data-i18n="exp2-duration">2 mois</span>
               </div>
-              <div class="profile-name">KASSID SAAD</div>
-              <div class="profile-role" id="profile-role">Développement logiciel · Web & mobile · IA</div>
-              <div class="info-row">
-                📍 <span id="info-location">Ain Borja, Casablanca, Maroc</span>
-              </div>
-            </div>
-          </aside>
-        </section>
-
-        <!-- Compétences -->
-        <section class="section">
-          <h2 class="section-title" id="section-title-skills">Compétences</h2>
-          <div class="section-card">
-            <div class="skills-grid">
-              <div class="skills-group">
-                <div class="skills-group-title" id="skills-languages-title">Langages</div>
-                <div class="skill-icons-row">
-                  <div class="skill-icon" title="Java">
-                    <i class="devicon-java-plain colored"></i>
-                    <span class="skill-label">Java</span>
-                  </div>
-                  <div class="skill-icon" title="Python">
-                    <i class="devicon-python-plain colored"></i>
-                    <span class="skill-label">Python</span>
-                  </div>
-                  <div class="skill-icon" title="JavaScript">
-                    <i class="devicon-javascript-plain colored"></i>
-                    <span class="skill-label">JavaScript</span>
-                  </div>
-                  <div class="skill-icon" title="C++">
-                    <i class="devicon-cplusplus-plain colored"></i>
-                    <span class="skill-label">C++</span>
-                  </div>
-                  <div class="skill-icon" title="C#">
-                    <i class="devicon-csharp-plain colored"></i>
-                    <span class="skill-label">C#</span>
-                  </div>
-                  <div class="skill-icon" title="Dart">
-                    <i class="devicon-dart-plain colored"></i>
-                    <span class="skill-label">Dart</span>
-                  </div>
-                  <div class="skill-icon" title="HTML5">
-                    <i class="devicon-html5-plain colored"></i>
-                    <span class="skill-label">HTML</span>
-                  </div>
-                  <div class="skill-icon" title="CSS3">
-                    <i class="devicon-css3-plain colored"></i>
-                    <span class="skill-label">CSS</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="skills-group">
-                <div class="skills-group-title" id="skills-frameworks-title">Frameworks</div>
-                <div class="skill-icons-row">
-                  <div class="skill-icon" title="Spring Boot">
-                    <i class="devicon-spring-plain colored"></i>
-                    <span class="skill-label">Spring</span>
-                  </div>
-                  <div class="skill-icon" title="React">
-                    <i class="devicon-react-original colored"></i>
-                    <span class="skill-label">React</span>
-                  </div>
-                  <div class="skill-icon" title="Django">
-                    <i class="devicon-django-plain colored"></i>
-                    <span class="skill-label">Django</span>
-                  </div>
-                  <div class="skill-icon" title="Flutter">
-                    <i class="devicon-flutter-plain colored"></i>
-                    <span class="skill-label">Flutter</span>
-                  </div>
-                  <div class="skill-icon" title=".NET">
-                    <i class="devicon-dotnetcore-plain colored"></i>
-                    <span class="skill-label">.NET</span>
-                  </div>
-                  <!-- Angular avec fallback emoji pour être sûr qu'il y ait un visuel -->
-                  <div class="skill-icon" title="Angular">
-                    <span style="font-size: 1.6rem;">🅰️</span>
-                    <span class="skill-label">Angular</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="skills-group">
-                <div class="skills-group-title" id="skills-tools-title">Outils</div>
-                <div class="skill-icons-row">
-                  <div class="skill-icon" title="Git">
-                    <i class="devicon-git-plain colored"></i>
-                    <span class="skill-label">Git</span>
-                  </div>
-                  <div class="skill-icon" title="VS Code">
-                    <i class="devicon-vscode-plain colored"></i>
-                    <span class="skill-label">VS Code</span>
-                  </div>
-                  <div class="skill-icon" title="IntelliJ IDEA">
-                    <i class="devicon-intellij-plain colored"></i>
-                    <span class="skill-label">IntelliJ</span>
-                  </div>
-                  <div class="skill-icon" title="PostgreSQL">
-                    <i class="devicon-postgresql-plain colored"></i>
-                    <span class="skill-label">PostgreSQL</span>
-                  </div>
-                  <div class="skill-icon" title="MySQL">
-                    <i class="devicon-mysql-plain colored"></i>
-                    <span class="skill-label">MySQL</span>
-                  </div>
-                  <div class="skill-icon" title="Docker">
-                    <i class="devicon-docker-plain colored"></i>
-                    <span class="skill-label">Docker</span>
-                  </div>
-                  <div class="skill-icon" title="StarUML">
-                    <span style="font-size: 1.6rem;">📐</span>
-                    <span class="skill-label">StarUML</span>
-                  </div>
-                </div>
+              <div class="exp-company" data-i18n="exp2-company">Voom Digital — Casablanca</div>
+              <p class="exp-desc" data-i18n="exp2-desc">
+                Participation au développement d'un avatar intelligent pour un showroom :
+                création d'une base de connaissances vectorielle et entraînement du modèle conversationnel.
+              </p>
+              <div class="tags">
+                <span class="tag">Flask</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Qdrant</span>
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- Certifications -->
-        <section class="section">
-          <h2 class="section-title" id="section-title-certifications">Certifications</h2>
-          <div class="section-card">
-            <!-- ⚠️ DUPLIQUE LES BLOCS timeline-item CI-DESSOUS
-                 ET REMPLACE LES TEXTES PAR TES VRAIES CERTIFICATIONS LINKEDIN -->
-            <div class="timeline">
-
-                <!-- OCI DevOps -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-oci-title">
-                    Oracle Cloud Infrastructure 2025 Certified DevOps Professional
-                  </div>
-                  <div class="timeline-meta" id="cert-oci-meta">
-                    Oracle · Émise oct. 2025 · Expire oct. 2027
-                  </div>
-                  <div class="timeline-desc" id="cert-oci-desc">
-                    Certification professionnelle sur les concepts DevOps dans Oracle Cloud Infrastructure :
-                    CI/CD, automatisation, supervision, haute disponibilité et bonnes pratiques de déploiement cloud.
-                  </div>
-                </div>
-
-                <!-- IBM Docker Kubernetes -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-docker-title">
-                    Introduction aux conteneurs avec Docker, Kubernetes et OpenShift
-                  </div>
-                  <div class="timeline-meta" id="cert-docker-meta">
-                    IBM · Émise juin 2025
-                  </div>
-                  <div class="timeline-desc" id="cert-docker-desc">
-                    Introduction pratique aux conteneurs et à l’orchestration avec Docker, Kubernetes et OpenShift :
-                    images, pods, déploiements, scaling et gestion des applications cloud-native.
-                  </div>
-                </div>
-
-                <!-- Azure Networks -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-azure-title">
-                    Réseaux virtuels dans Azure
-                  </div>
-                  <div class="timeline-meta" id="cert-azure-meta">
-                    Whizlabs · Émise mai 2025
-                  </div>
-                  <div class="timeline-desc" id="cert-azure-desc">
-                    Principes des réseaux virtuels sur Microsoft Azure : sous-réseaux, sécurité,
-                    routage, VPN et intégration réseau pour les architectures cloud.
-                  </div>
-                </div>
-
-                <!-- Java OOP UPenn -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-javaoop-title">
-                    Introduction à Java et à la programmation orientée objet
-                  </div>
-                  <div class="timeline-meta" id="cert-javaoop-meta">
-                    University of Pennsylvania · Émise déc. 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-javaoop-desc">
-                    Bases du langage Java et de la programmation orientée objet : classes, objets,
-                    héritage, polymorphisme et structures de contrôle.
-                  </div>
-                </div>
-
-                <!-- React Meta -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-react-title">
-                    Les bases de React
-                  </div>
-                  <div class="timeline-meta" id="cert-react-meta">
-                    Meta · Émise déc. 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-react-desc">
-                    Notions fondamentales de React : composants, props, état, hooks de base et création
-                    d’interfaces web modernes et réactives.
-                  </div>
-                </div>
-
-                <!-- Soft Skills IBM -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-softskills-title">
-                    People and Soft Skills for Professional and Personal Success
-                  </div>
-                  <div class="timeline-meta" id="cert-softskills-meta">
-                    IBM · Émise mai 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-softskills-desc">
-                    Développement des soft skills : communication, travail en équipe, leadership,
-                    gestion du conflit et posture professionnelle.
-                  </div>
-                </div>
-
-                <!-- Critical Thinking IBM -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-critical-title">
-                    Solving Problems with Creative and Critical Thinking
-                  </div>
-                  <div class="timeline-meta" id="cert-critical-meta">
-                    IBM · Émise mai 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-critical-desc">
-                    Méthodes de résolution de problèmes complexes en combinant pensée critique et créativité.
-                  </div>
-                </div>
-
-                <!-- Unix -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-unix-title">
-                    L'atelier Unix
-                  </div>
-                  <div class="timeline-meta" id="cert-unix-meta">
-                    Johns Hopkins University · Émise mars 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-unix-desc">
-                    Initiation à Unix : commandes de base, shell, scripts simples et gestion du système.
-                  </div>
-                </div>
-
-                <!-- Python Intro -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-python-title">
-                    Programming for Everybody (Getting Started with Python)
-                  </div>
-                  <div class="timeline-meta" id="cert-python-meta">
-                    University of Michigan · Émise mars 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-python-desc">
-                    Introduction à Python : variables, boucles, conditions et fonctions.
-                  </div>
-                </div>
-
-                <!-- Unix Workbench -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-unixwb-title">
-                    The Unix Workbench
-                  </div>
-                  <div class="timeline-meta" id="cert-unixwb-meta">
-                    Johns Hopkins University · Émise mars 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-unixwb-desc">
-                    Scripts avancés, automatisation et outils Unix pour développeurs.
-                  </div>
-                </div>
-
-                <!-- JS Interactivity -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-js-title">
-                    Interactivité avec JavaScript
-                  </div>
-                  <div class="timeline-meta" id="cert-js-meta">
-                    University of Michigan · Émise janv. 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-js-desc">
-                    Manipulation du DOM, événements, animations et interactivité web.
-                  </div>
-                </div>
-
-                <!-- CSS3 -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-css3-title">
-                    Introduction to CSS3
-                  </div>
-                  <div class="timeline-meta" id="cert-css3-meta">
-                    University of Michigan · Émise janv. 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-css3-desc">
-                    Sélecteurs, layouts, couleurs, typographie et responsive design.
-                  </div>
-                </div>
-
-                <!-- C++ OOP -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-cpp-title">
-                    Introduction à la programmation orientée objet (C++)
-                  </div>
-                  <div class="timeline-meta" id="cert-cpp-meta">
-                    EPFL · Émise janv. 2024
-                  </div>
-                  <div class="timeline-desc" id="cert-cpp-desc">
-                    OOP en C++ : classes, encapsulation, héritage et polymorphisme.
-                  </div>
-                </div>
-
-                <!-- HTML5 -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-html5-title">
-                    Introduction to HTML5
-                  </div>
-                  <div class="timeline-meta" id="cert-html5-meta">
-                    University of Michigan · Émise déc. 2023
-                  </div>
-                  <div class="timeline-desc" id="cert-html5-desc">
-                    Structure HTML5, sémantique, formulaires et bonnes pratiques.
-                  </div>
-                </div>
-
-                <!-- Web Dev UCI -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-webdev-title">
-                    HTML, CSS, and JavaScript for Web Developers
-                  </div>
-                  <div class="timeline-meta" id="cert-webdev-meta">
-                    UC Irvine · Émise avr. 2023
-                  </div>
-                  <div class="timeline-desc" id="cert-webdev-desc">
-                    Formation complète au développement web : HTML, CSS et JavaScript modernes.
-                  </div>
-                </div>
-
-                <!-- SQL -->
-                <div class="timeline-item">
-                  <div class="timeline-item-title" id="cert-sql-title">
-                    The Structured Query Language (SQL)
-                  </div>
-                  <div class="timeline-meta" id="cert-sql-meta">
-                    University of Colorado Boulder · Émise avr. 2023
-                  </div>
-                  <div class="timeline-desc" id="cert-sql-desc">
-                    SQL : SELECT, INSERT, UPDATE, DELETE, JOINS, filtres et manipulation de données.
-                  </div>
-                </div>
-
+          <!-- Groupe Bennis -->
+          <div class="exp-item reveal" style="--reveal-delay: 0.3s">
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title" data-i18n="exp3-title">Stage de fin d'année — Développeur Web</div>
+                <span class="exp-duration" data-i18n="exp3-duration">1 mois</span>
               </div>
-
-          </div>
-        </section>
-      </div>
-
-      <!-- PAGE 2 : PROJETS -->
-      <div id="page-projects" class="page-view">
-        <section class="section">
-          <h2 class="section-title" id="section-title-projects">Projets principaux</h2>
-          <div class="section-card">
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-item-title" id="proj1-title">Gestion des dépenses</div>
-                <div class="timeline-meta" id="proj1-meta">Spring Boot · React · PostgreSQL</div>
-                <div class="timeline-desc" id="proj1-desc">
-                  Application web pour suivre et catégoriser les dépenses quotidiennes,
-                  avec visualisation simple des dépenses et historique par mois.
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-item-title" id="proj2-title">Plateforme de streaming & recommandations</div>
-                <div class="timeline-meta" id="proj2-meta">Spring Boot · React · Flask + ML</div>
-                <div class="timeline-desc" id="proj2-desc">
-                  Recherche et suivi de films, séries et animés, avec moteur de
-                  recommandations basé sur le comportement de l'utilisateur.
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-item-title" id="proj3-title">App mobile de gestion des absences</div>
-                <div class="timeline-meta" id="proj3-meta">Flutter · Firebase</div>
-                <div class="timeline-desc" id="proj3-desc">
-                  Application Android pour les enseignants d'un établissement scolaire,
-                  permettant d'enregistrer et consulter les absences des élèves.
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-item-title" id="proj4-title">Avatar intelligent pour showroom</div>
-                <div class="timeline-meta" id="proj4-meta">Spring Boot · React · IA (NLP)</div>
-                <div class="timeline-desc" id="proj4-desc">
-                  Système de conversation pour showroom avec base de connaissances
-                  et IA pour répondre aux questions des clients sur les produits.
-                </div>
+              <div class="exp-company" data-i18n="exp3-company">Groupe Bennis — Casablanca</div>
+              <p class="exp-desc" data-i18n="exp3-desc">
+                Développement d'une application de gestion de stock et d'un site web vitrine
+                pour la présence en ligne de la marque Mobilium.
+              </p>
+              <div class="tags">
+                <span class="tag">Spring Boot</span>
+                <span class="tag">React</span>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <!-- PAGE 3 : CONTACT -->
-      <div id="page-contact" class="page-view">
-        <section class="section">
-          <h2 class="section-title" id="section-title-contact">Contact</h2>
-          <div class="section-card">
-            <div class="contact-grid">
-              <a href="mailto:s.kassid2003@gmail.com" class="contact-item">
-                <div class="contact-icon">📧</div>
-                <div class="contact-info">
-                  <div class="contact-label" id="contact-email-label">Email</div>
-                  <div class="contact-value">s.kassid2003@gmail.com</div>
-                </div>
-              </a>
+      <!-- ===== PROJECTS ===== -->
+      <section class="section" id="projects">
+        <h2 class="section-title reveal"><span class="num">02</span><span data-i18n="section-title-projects">Projets</span></h2>
+        <p class="section-sub reveal" data-i18n="section-sub-projects">Une sélection de projets académiques et personnels.</p>
 
-              <a href="tel:+212774430627" class="contact-item">
-                <div class="contact-icon">📱</div>
-                <div class="contact-info">
-                  <div class="contact-label" id="contact-phone-label">Téléphone</div>
-                  <div class="contact-value">+212 774 430 627</div>
-                </div>
-              </a>
+        <div class="projects-grid">
+          <div class="project-card reveal" style="--reveal-delay: 0.05s">
+            <div class="project-icon">📊</div>
+            <div class="project-title" data-i18n="proj1-title">Application de suivi quotidien</div>
+            <p class="project-desc" data-i18n="proj1-desc">
+              Application web basée sur une architecture microservices regroupant trois services :
+              gestion des dépenses, gestion de la nutrition et gestion des tâches, pour un suivi
+              quotidien centralisé et intuitif.
+            </p>
+            <div class="tags">
+              <span class="tag">Microservices</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Angular</span>
+            </div>
+          </div>
 
-              <a href="https://linkedin.com/in/kassid-saad" target="_blank" rel="noopener noreferrer" class="contact-item">
-                <div class="contact-icon">💼</div>
-                <div class="contact-info">
-                  <div class="contact-label">LinkedIn</div>
-                  <div class="contact-value">kassid-saad</div>
-                </div>
-              </a>
+          <div class="project-card reveal" style="--reveal-delay: 0.15s">
+            <div class="project-icon">🎬</div>
+            <div class="project-title" data-i18n="proj2-title">Plateforme de streaming &amp; recommandations</div>
+            <p class="project-desc" data-i18n="proj2-desc">
+              Recherche et suivi de films, séries et animés, avec un moteur de recommandations
+              basé sur le comportement de l'utilisateur.
+            </p>
+            <div class="tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">React</span>
+              <span class="tag">Flask + ML</span>
+            </div>
+          </div>
 
-              <a href="https://github.com/KASSID-Saad" target="_blank" rel="noopener noreferrer" class="contact-item">
-                <div class="contact-icon">💻</div>
-                <div class="contact-info">
-                  <div class="contact-label">GitHub</div>
-                  <div class="contact-value">KASSID-Saad</div>
-                </div>
-              </a>
+          <div class="project-card reveal" style="--reveal-delay: 0.25s">
+            <div class="project-icon">📱</div>
+            <div class="project-title" data-i18n="proj3-title">App mobile de gestion des absences</div>
+            <p class="project-desc" data-i18n="proj3-desc">
+              Application Android intuitive permettant aux professeurs de gérer les absences
+              des étudiants d'un établissement de manière simplifiée.
+            </p>
+            <div class="tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div class="contact-info">
-                  <div class="contact-label" id="contact-location-label">Localisation</div>
-                  <div class="contact-value" id="contact-location-value">Ain Borja, Casablanca</div>
-                </div>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section class="section" id="skills">
+        <h2 class="section-title reveal"><span class="num">03</span><span data-i18n="section-title-skills">Compétences</span></h2>
+        <p class="section-sub reveal" data-i18n="section-sub-skills">Les technologies que j'utilise au quotidien.</p>
+
+        <div class="skills-grid">
+          <div class="skills-group reveal" style="--reveal-delay: 0.05s">
+            <div class="skills-group-title" data-i18n="skills-languages-title">Langages</div>
+            <div class="skill-icons-row">
+              <div class="skill-icon" title="Java">
+                <i class="devicon-java-plain colored"></i>
+                <span class="skill-label">Java</span>
               </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">🎓</div>
-                <div class="contact-info">
-                  <div class="contact-label" id="contact-school-label">École</div>
-                  <div class="contact-value">EMSI Casablanca</div>
-                </div>
+              <div class="skill-icon" title="Python">
+                <i class="devicon-python-plain colored"></i>
+                <span class="skill-label">Python</span>
+              </div>
+              <div class="skill-icon" title="JavaScript">
+                <i class="devicon-javascript-plain colored"></i>
+                <span class="skill-label">JavaScript</span>
+              </div>
+              <div class="skill-icon" title="C++">
+                <i class="devicon-cplusplus-plain colored"></i>
+                <span class="skill-label">C++</span>
+              </div>
+              <div class="skill-icon" title="SQL">
+                <span class="skill-emoji">🗄️</span>
+                <span class="skill-label">SQL</span>
+              </div>
+              <div class="skill-icon" title="HTML5">
+                <i class="devicon-html5-plain colored"></i>
+                <span class="skill-label">HTML</span>
+              </div>
+              <div class="skill-icon" title="CSS3">
+                <i class="devicon-css3-plain colored"></i>
+                <span class="skill-label">CSS</span>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+
+          <div class="skills-group reveal" style="--reveal-delay: 0.15s">
+            <div class="skills-group-title" data-i18n="skills-frameworks-title">Frameworks</div>
+            <div class="skill-icons-row">
+              <div class="skill-icon" title="Spring Boot">
+                <i class="devicon-spring-plain colored"></i>
+                <span class="skill-label">Spring Boot</span>
+              </div>
+              <div class="skill-icon" title="Spring Batch">
+                <i class="devicon-spring-plain colored"></i>
+                <span class="skill-label">Spring Batch</span>
+              </div>
+              <div class="skill-icon" title="React">
+                <i class="devicon-react-original colored"></i>
+                <span class="skill-label">React</span>
+              </div>
+              <div class="skill-icon" title="Angular">
+                <i class="devicon-angularjs-plain colored"></i>
+                <span class="skill-label">Angular</span>
+              </div>
+              <div class="skill-icon" title="Django">
+                <i class="devicon-django-plain colored"></i>
+                <span class="skill-label">Django</span>
+              </div>
+              <div class="skill-icon" title="Flask">
+                <i class="devicon-flask-original"></i>
+                <span class="skill-label">Flask</span>
+              </div>
+              <div class="skill-icon" title="Flutter">
+                <i class="devicon-flutter-plain colored"></i>
+                <span class="skill-label">Flutter</span>
+              </div>
+              <div class="skill-icon" title=".NET">
+                <i class="devicon-dotnetcore-plain colored"></i>
+                <span class="skill-label">.NET</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-group reveal" style="--reveal-delay: 0.25s">
+            <div class="skills-group-title" data-i18n="skills-tools-title">Outils</div>
+            <div class="skill-icons-row">
+              <div class="skill-icon" title="Git">
+                <i class="devicon-git-plain colored"></i>
+                <span class="skill-label">Git</span>
+              </div>
+              <div class="skill-icon" title="Docker">
+                <i class="devicon-docker-plain colored"></i>
+                <span class="skill-label">Docker</span>
+              </div>
+              <div class="skill-icon" title="PostgreSQL">
+                <i class="devicon-postgresql-plain colored"></i>
+                <span class="skill-label">PostgreSQL</span>
+              </div>
+              <div class="skill-icon" title="MySQL">
+                <i class="devicon-mysql-plain colored"></i>
+                <span class="skill-label">MySQL</span>
+              </div>
+              <div class="skill-icon" title="VS Code">
+                <i class="devicon-vscode-plain colored"></i>
+                <span class="skill-label">VS Code</span>
+              </div>
+              <div class="skill-icon" title="IntelliJ IDEA">
+                <i class="devicon-intellij-plain colored"></i>
+                <span class="skill-label">IntelliJ</span>
+              </div>
+              <div class="skill-icon" title="Postman">
+                <span class="skill-emoji">📮</span>
+                <span class="skill-label">Postman</span>
+              </div>
+              <div class="skill-icon" title="Qdrant">
+                <span class="skill-emoji">🧭</span>
+                <span class="skill-label">Qdrant</span>
+              </div>
+              <div class="skill-icon" title="StarUML">
+                <span class="skill-emoji">📐</span>
+                <span class="skill-label">StarUML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EDUCATION ===== -->
+      <section class="section" id="education">
+        <h2 class="section-title reveal"><span class="num">04</span><span data-i18n="section-title-education">Formation</span></h2>
+        <p class="section-sub reveal" data-i18n="section-sub-education">Mon parcours académique.</p>
+
+        <div class="edu-grid">
+          <div class="edu-card reveal" style="--reveal-delay: 0.05s">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <div class="edu-title" data-i18n="edu1-title">Cycle préparatoire &amp; d'ingénieur — Informatique &amp; Réseaux</div>
+              <div class="edu-meta">2021 – 2026</div>
+              <div class="edu-desc" data-i18n="edu1-desc">École Marocaine des Sciences de l'Ingénieur (EMSI) — Casablanca</div>
+            </div>
+          </div>
+          <div class="edu-card reveal" style="--reveal-delay: 0.15s">
+            <div class="edu-icon">📚</div>
+            <div>
+              <div class="edu-title" data-i18n="edu2-title">Baccalauréat Sciences Physiques</div>
+              <div class="edu-meta">2021</div>
+              <div class="edu-desc" data-i18n="edu2-desc">Groupe Scolaire Addoha — Casablanca</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CERTIFICATIONS ===== -->
+      <section class="section" id="certifications">
+        <h2 class="section-title reveal"><span class="num">05</span><span data-i18n="section-title-certifications">Certifications</span></h2>
+        <p class="section-sub reveal" data-i18n="section-sub-certifications">Formation continue et certifications professionnelles.</p>
+
+        <div class="certs-grid">
+          <div class="cert-card reveal">
+            <div class="cert-title">Oracle Cloud Infrastructure 2025 Certified DevOps Professional</div>
+            <div class="cert-meta" data-i18n="cert-oci-meta">Oracle · Oct. 2025</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-docker-title">Introduction aux conteneurs : Docker, Kubernetes &amp; OpenShift</div>
+            <div class="cert-meta" data-i18n="cert-docker-meta">IBM · Juin 2025</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-azure-title">Réseaux virtuels dans Azure</div>
+            <div class="cert-meta" data-i18n="cert-azure-meta">Whizlabs · Mai 2025</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-javaoop-title">Introduction à Java et à la programmation orientée objet</div>
+            <div class="cert-meta" data-i18n="cert-javaoop-meta">University of Pennsylvania · Déc. 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-react-title">Les bases de React</div>
+            <div class="cert-meta" data-i18n="cert-react-meta">Meta · Déc. 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">People and Soft Skills for Professional and Personal Success</div>
+            <div class="cert-meta" data-i18n="cert-softskills-meta">IBM · Mai 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">Solving Problems with Creative and Critical Thinking</div>
+            <div class="cert-meta" data-i18n="cert-critical-meta">IBM · Mai 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-unix-title">L'atelier Unix</div>
+            <div class="cert-meta" data-i18n="cert-unix-meta">Johns Hopkins University · Mars 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">Programming for Everybody (Getting Started with Python)</div>
+            <div class="cert-meta" data-i18n="cert-python-meta">University of Michigan · Mars 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">The Unix Workbench</div>
+            <div class="cert-meta" data-i18n="cert-unixwb-meta">Johns Hopkins University · Mars 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-js-title">Interactivité avec JavaScript</div>
+            <div class="cert-meta" data-i18n="cert-js-meta">University of Michigan · Janv. 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">Introduction to CSS3</div>
+            <div class="cert-meta" data-i18n="cert-css3-meta">University of Michigan · Janv. 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title" data-i18n="cert-cpp-title">Introduction à la programmation orientée objet (C++)</div>
+            <div class="cert-meta" data-i18n="cert-cpp-meta">EPFL · Janv. 2024</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">Introduction to HTML5</div>
+            <div class="cert-meta" data-i18n="cert-html5-meta">University of Michigan · Déc. 2023</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">HTML, CSS, and JavaScript for Web Developers</div>
+            <div class="cert-meta" data-i18n="cert-webdev-meta">UC Irvine · Avr. 2023</div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-title">The Structured Query Language (SQL)</div>
+            <div class="cert-meta" data-i18n="cert-sql-meta">University of Colorado Boulder · Avr. 2023</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section class="section" id="contact">
+        <h2 class="section-title reveal"><span class="num">06</span><span data-i18n="section-title-contact">Contact</span></h2>
+        <p class="section-sub reveal" data-i18n="section-sub-contact">N'hésitez pas à me contacter, je réponds rapidement.</p>
+
+        <div class="contact-grid">
+          <a href="mailto:s.kassid2003@gmail.com" class="contact-item reveal" style="--reveal-delay: 0.05s">
+            <div class="contact-icon">📧</div>
+            <div class="contact-info">
+              <div class="contact-label" data-i18n="contact-email-label">Email</div>
+              <div class="contact-value">s.kassid2003@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="tel:+212774430627" class="contact-item reveal" style="--reveal-delay: 0.1s">
+            <div class="contact-icon">📱</div>
+            <div class="contact-info">
+              <div class="contact-label" data-i18n="contact-phone-label">Téléphone</div>
+              <div class="contact-value">+212 774 430 627</div>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/kassid-saad" target="_blank" rel="noopener noreferrer" class="contact-item reveal" style="--reveal-delay: 0.15s">
+            <div class="contact-icon">💼</div>
+            <div class="contact-info">
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">kassid-saad</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/KASSID-Saad" target="_blank" rel="noopener noreferrer" class="contact-item reveal" style="--reveal-delay: 0.2s">
+            <div class="contact-icon">💻</div>
+            <div class="contact-info">
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">KASSID-Saad</div>
+            </div>
+          </a>
+
+          <div class="contact-item reveal" style="--reveal-delay: 0.25s">
+            <div class="contact-icon">📍</div>
+            <div class="contact-info">
+              <div class="contact-label" data-i18n="contact-location-label">Localisation</div>
+              <div class="contact-value" data-i18n="contact-location-value">Ain Borja, Casablanca</div>
+            </div>
+          </div>
+
+          <div class="contact-item reveal" style="--reveal-delay: 0.3s">
+            <div class="contact-icon">🎓</div>
+            <div class="contact-info">
+              <div class="contact-label" data-i18n="contact-school-label">École</div>
+              <div class="contact-value">EMSI Casablanca</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer>
       <div class="footer-row">
-        <span id="footer-text">© <span id="year"></span> KASSID SAAD · Portfolio personnel</span>
+        <span>© <span id="year"></span> KASSID SAAD · <span data-i18n="footer-text">Portfolio personnel</span></span>
         <div class="social-icons">
           <a class="social-icon-btn" href="https://github.com/KASSID-Saad" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <span class="social-icon-initial">GH</span>
@@ -1397,321 +2053,434 @@
     </footer>
   </div>
 
-  <!-- Scroll to top button -->
-  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
 
   <script>
-    // Hide loader when page is loaded
+    /* ===== Loader ===== */
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader').classList.add('hidden');
-      }, 500);
+      }, 600);
     });
 
-    // Current year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    /* ===== Current year ===== */
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* Multi-page navigation */
-    const pageViews = {
-      about: document.getElementById("page-about"),
-      projects: document.getElementById("page-projects"),
-      contact: document.getElementById("page-contact")
-    };
-    const navButtons = document.querySelectorAll(".nav-link, [data-view]");
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function navigateToPage(view) {
-      Object.values(pageViews).forEach(v => v.classList.remove("page-view-active"));
-      if (pageViews[view]) {
-        pageViews[view].classList.add("page-view-active");
-      }
-
-      document.querySelectorAll(".nav-link").forEach(b => b.classList.remove("nav-link-active"));
-      const activeNav = document.querySelector(`.nav-link[data-view="${view}"]`);
-      if (activeNav) {
-        activeNav.classList.add("nav-link-active");
-      }
-
-      // Scroll to top smoothly
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    navButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const view = btn.getAttribute("data-view");
-        if (view) navigateToPage(view);
-      });
-    });
-
-    /* Translations FR / EN */
+    /* ===== Translations ===== */
     const translations = {
       fr: {
+        "brand-subtitle": "Ingénieur en Informatique",
         "nav-about": "À propos",
+        "nav-experience": "Expérience",
         "nav-projects": "Projets",
+        "nav-skills": "Compétences",
         "nav-contact": "Contact",
-        "pill-text": "Disponible pour opportunités en informatique",
-        "hero-title": "Élève ingénieur en informatique & IA",
-        "hero-tagline": "EMSI – Casablanca",
-        "hero-text": "Étudiant en ingénierie informatique passionné par le développement logiciel, les architectures modernes et l'intelligence artificielle. Je cherche à rejoindre des équipes où je peux apprendre, contribuer rapidement et participer à des projets concrets.",
+        "pill-text": "Disponible pour de nouvelles opportunités",
+        "hero-greeting": "Bonjour, je suis",
+        "hero-text": "Ingénieur en informatique diplômé de l'EMSI, spécialisé en développement full-stack (Java / Spring Boot & React) et en architecture microservices. Lors de mon PFE à la Banque Centrale Populaire, j'ai conçu une plateforme de supervision qui a transformé un traitement manuel de fichiers de crédit en un suivi automatisé en temps réel. Rigoureux et curieux, je cherche à relever des défis techniques ambitieux au sein d'équipes dynamiques.",
         "hero-btn-cv": "Télécharger mon CV",
         "hero-btn-contact": "Me contacter",
-        "profile-role": "Développement logiciel · Web & mobile · IA",
-        "info-location": "Ain Borja, Casablanca, Maroc",
+        "stat-exp": "Expériences pro",
+        "stat-certs": "Certifications",
+        "stat-years": "Années de formation",
+        "profile-role": "Full-Stack · Microservices · IA",
+        "info-location": "Casablanca, Maroc",
+        "section-title-experience": "Expérience professionnelle",
+        "section-sub-experience": "Mon parcours en entreprise, du stage d'initiation au projet de fin d'études.",
+        "exp1-badge": "Dernière expérience",
+        "exp1-title": "Développeur Full-Stack — Stage PFE",
+        "exp1-duration": "6 mois · 2026",
+        "exp1-company": "Banque Centrale Populaire — DSI Engagements & Risques, Casablanca",
+        "exp1-desc": "Conception full-stack de la « File Monitoring App », une plateforme de supervision automatisée des traitements batch de crédits (système Evolan), qui a remplacé un processus manuel sous Excel par un suivi en temps réel.",
+        "exp1-li1": "Développement de 6 jobs Spring Batch automatisant le parsing de milliers de lignes d'anomalies auparavant traitées manuellement sous Excel.",
+        "exp1-li2": "Détection des anomalies en temps réel au lieu de la mi-matinée, grâce à un tableau de bord live construit en React.",
+        "exp1-li3": "Mise en place de la sécurité JWT et d'une traçabilité complète des traitements.",
+        "exp1-li4": "Résultat : un meilleur contrôle du risque de crédit pour la banque.",
+        "exp2-title": "Stage de fin d'année — Développeur IA",
+        "exp2-duration": "2 mois",
+        "exp2-company": "Voom Digital — Casablanca",
+        "exp2-desc": "Participation au développement d'un avatar intelligent pour un showroom : création d'une base de connaissances vectorielle et entraînement du modèle conversationnel.",
+        "exp3-title": "Stage de fin d'année — Développeur Web",
+        "exp3-duration": "1 mois",
+        "exp3-company": "Groupe Bennis — Casablanca",
+        "exp3-desc": "Développement d'une application de gestion de stock et d'un site web vitrine pour la présence en ligne de la marque Mobilium.",
+        "section-title-projects": "Projets",
+        "section-sub-projects": "Une sélection de projets académiques et personnels.",
+        "proj1-title": "Application de suivi quotidien",
+        "proj1-desc": "Application web basée sur une architecture microservices regroupant trois services : gestion des dépenses, gestion de la nutrition et gestion des tâches, pour un suivi quotidien centralisé et intuitif.",
+        "proj2-title": "Plateforme de streaming & recommandations",
+        "proj2-desc": "Recherche et suivi de films, séries et animés, avec un moteur de recommandations basé sur le comportement de l'utilisateur.",
+        "proj3-title": "App mobile de gestion des absences",
+        "proj3-desc": "Application Android intuitive permettant aux professeurs de gérer les absences des étudiants d'un établissement de manière simplifiée.",
         "section-title-skills": "Compétences",
+        "section-sub-skills": "Les technologies que j'utilise au quotidien.",
         "skills-languages-title": "Langages",
         "skills-frameworks-title": "Frameworks",
         "skills-tools-title": "Outils",
+        "section-title-education": "Formation",
+        "section-sub-education": "Mon parcours académique.",
+        "edu1-title": "Cycle préparatoire & d'ingénieur — Informatique & Réseaux",
+        "edu1-desc": "École Marocaine des Sciences de l'Ingénieur (EMSI) — Casablanca",
+        "edu2-title": "Baccalauréat Sciences Physiques",
+        "edu2-desc": "Groupe Scolaire Addoha — Casablanca",
         "section-title-certifications": "Certifications",
-        "cert-linkedin-text": "Voir toutes mes certifications sur LinkedIn",
-        "section-title-projects": "Projets principaux",
-        "proj1-title": "Gestion des dépenses",
-        "proj1-meta": "Spring Boot · React · PostgreSQL",
-        "proj1-desc": "Application web pour suivre et catégoriser les dépenses quotidiennes, avec visualisation simple des dépenses et historique par mois.",
-        "proj2-title": "Plateforme de streaming & recommandations",
-        "proj2-meta": "Spring Boot · React · Flask + ML",
-        "proj2-desc": "Recherche et suivi de films, séries et animés, avec moteur de recommandations basé sur le comportement de l'utilisateur.",
-        "proj3-title": "App mobile de gestion des absences",
-        "proj3-meta": "Flutter · Firebase",
-        "proj3-desc": "Application Android pour les enseignants d'un établissement scolaire, permettant d'enregistrer et consulter les absences des élèves.",
-        "proj4-title": "Avatar intelligent pour showroom",
-        "proj4-meta": "Spring Boot · React · IA (NLP)",
-        "proj4-desc": "Système de conversation pour showroom avec base de connaissances et IA pour répondre aux questions des clients sur les produits.",
+        "section-sub-certifications": "Formation continue et certifications professionnelles.",
+        "cert-oci-meta": "Oracle · Oct. 2025",
+        "cert-docker-title": "Introduction aux conteneurs : Docker, Kubernetes & OpenShift",
+        "cert-docker-meta": "IBM · Juin 2025",
+        "cert-azure-title": "Réseaux virtuels dans Azure",
+        "cert-azure-meta": "Whizlabs · Mai 2025",
+        "cert-javaoop-title": "Introduction à Java et à la programmation orientée objet",
+        "cert-javaoop-meta": "University of Pennsylvania · Déc. 2024",
+        "cert-react-title": "Les bases de React",
+        "cert-react-meta": "Meta · Déc. 2024",
+        "cert-softskills-meta": "IBM · Mai 2024",
+        "cert-critical-meta": "IBM · Mai 2024",
+        "cert-unix-title": "L'atelier Unix",
+        "cert-unix-meta": "Johns Hopkins University · Mars 2024",
+        "cert-python-meta": "University of Michigan · Mars 2024",
+        "cert-unixwb-meta": "Johns Hopkins University · Mars 2024",
+        "cert-js-title": "Interactivité avec JavaScript",
+        "cert-js-meta": "University of Michigan · Janv. 2024",
+        "cert-css3-meta": "University of Michigan · Janv. 2024",
+        "cert-cpp-title": "Introduction à la programmation orientée objet (C++)",
+        "cert-cpp-meta": "EPFL · Janv. 2024",
+        "cert-html5-meta": "University of Michigan · Déc. 2023",
+        "cert-webdev-meta": "UC Irvine · Avr. 2023",
+        "cert-sql-meta": "University of Colorado Boulder · Avr. 2023",
         "section-title-contact": "Contact",
+        "section-sub-contact": "N'hésitez pas à me contacter, je réponds rapidement.",
         "contact-email-label": "Email",
         "contact-phone-label": "Téléphone",
         "contact-location-label": "Localisation",
         "contact-location-value": "Ain Borja, Casablanca",
         "contact-school-label": "École",
-        // ---- Certifications (FR) ----
-        "cert-oci-title": "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
-        "cert-oci-meta": "Oracle · Émise oct. 2025 · Expire oct. 2027",
-        "cert-oci-desc": "Certification professionnelle sur les concepts DevOps dans Oracle Cloud Infrastructure : CI/CD, automatisation, supervision, haute disponibilité et bonnes pratiques de déploiement cloud.",
-
-        "cert-docker-title": "Introduction aux conteneurs avec Docker, Kubernetes et OpenShift",
-        "cert-docker-meta": "IBM · Émise juin 2025",
-        "cert-docker-desc": "Introduction pratique aux conteneurs et à l’orchestration avec Docker, Kubernetes et OpenShift : images, pods, déploiements, scaling et gestion des applications cloud-native.",
-
-        "cert-azure-title": "Réseaux virtuels dans Azure",
-        "cert-azure-meta": "Whizlabs · Émise mai 2025",
-        "cert-azure-desc": "Principes des réseaux virtuels sur Microsoft Azure : sous-réseaux, sécurité, routage, VPN et intégration réseau pour les architectures cloud.",
-
-        "cert-javaoop-title": "Introduction à Java et à la programmation orientée objet",
-        "cert-javaoop-meta": "University of Pennsylvania · Émise déc. 2024",
-        "cert-javaoop-desc": "Bases du langage Java et de la programmation orientée objet : classes, objets, héritage, polymorphisme et structures de contrôle.",
-
-        "cert-react-title": "Les bases de React",
-        "cert-react-meta": "Meta · Émise déc. 2024",
-        "cert-react-desc": "Notions fondamentales de React : composants, props, état, hooks de base et création d’interfaces web modernes et réactives.",
-
-        "cert-softskills-title": "People and Soft Skills for Professional and Personal Success",
-        "cert-softskills-meta": "IBM · Émise mai 2024",
-        "cert-softskills-desc": "Développement des soft skills : communication, travail en équipe, leadership, gestion du conflit et posture professionnelle.",
-
-        "cert-critical-title": "Solving Problems with Creative and Critical Thinking",
-        "cert-critical-meta": "IBM · Émise mai 2024",
-        "cert-critical-desc": "Méthodes de résolution de problèmes complexes en combinant pensée critique et créativité.",
-
-        "cert-unix-title": "L'atelier Unix",
-        "cert-unix-meta": "Johns Hopkins University · Émise mars 2024",
-        "cert-unix-desc": "Initiation à Unix : commandes de base, shell, scripts simples et gestion du système.",
-
-        "cert-python-title": "Programming for Everybody (Getting Started with Python)",
-        "cert-python-meta": "University of Michigan · Émise mars 2024",
-        "cert-python-desc": "Introduction à Python : variables, boucles, conditions et fonctions.",
-
-        "cert-unixwb-title": "The Unix Workbench",
-        "cert-unixwb-meta": "Johns Hopkins University · Émise mars 2024",
-        "cert-unixwb-desc": "Scripts avancés, automatisation et outils Unix pour développeurs.",
-
-        "cert-js-title": "Interactivité avec JavaScript",
-        "cert-js-meta": "University of Michigan · Émise janv. 2024",
-        "cert-js-desc": "Manipulation du DOM, événements, animations et interactivité web.",
-
-        "cert-css3-title": "Introduction to CSS3",
-        "cert-css3-meta": "University of Michigan · Émise janv. 2024",
-        "cert-css3-desc": "Sélecteurs, layouts, couleurs, typographie et responsive design.",
-
-        "cert-cpp-title": "Introduction à la programmation orientée objet (C++)",
-        "cert-cpp-meta": "EPFL · Émise janv. 2024",
-        "cert-cpp-desc": "OOP en C++ : classes, encapsulation, héritage et polymorphisme.",
-
-        "cert-html5-title": "Introduction to HTML5",
-        "cert-html5-meta": "University of Michigan · Émise déc. 2023",
-        "cert-html5-desc": "Structure HTML5, sémantique, formulaires et bonnes pratiques.",
-
-        "cert-webdev-title": "HTML, CSS, and JavaScript for Web Developers",
-        "cert-webdev-meta": "UC Irvine · Émise avr. 2023",
-        "cert-webdev-desc": "Formation complète au développement web : HTML, CSS et JavaScript modernes.",
-
-        "cert-sql-title": "The Structured Query Language (SQL)",
-        "cert-sql-meta": "University of Colorado Boulder · Émise avr. 2023",
-        "cert-sql-desc": "SQL : SELECT, INSERT, UPDATE, DELETE, JOINS, filtres et manipulation de données.",
-
+        "footer-text": "Portfolio personnel"
       },
       en: {
+        "brand-subtitle": "Software Engineer",
         "nav-about": "About",
+        "nav-experience": "Experience",
         "nav-projects": "Projects",
+        "nav-skills": "Skills",
         "nav-contact": "Contact",
-        "pill-text": "Available for IT opportunities",
-        "hero-title": "Computer Engineering Student & AI",
-        "hero-tagline": "EMSI – Casablanca",
-        "hero-text": "Computer engineering student passionate about software development, modern architectures and artificial intelligence. I am looking to join teams where I can learn, contribute quickly and work on real-world projects.",
+        "pill-text": "Open to new opportunities",
+        "hero-greeting": "Hi, I am",
+        "hero-text": "Computer engineering graduate from EMSI, specialized in full-stack development (Java / Spring Boot & React) and microservices architecture. During my final-year internship at Banque Centrale Populaire, I designed a monitoring platform that turned a manual credit-file process into automated real-time tracking. Rigorous and curious, I am looking to take on ambitious technical challenges within dynamic teams.",
         "hero-btn-cv": "Download my CV",
         "hero-btn-contact": "Contact me",
-        "profile-role": "Software development · Web & mobile · AI",
-        "info-location": "Ain Borja, Casablanca, Morocco",
+        "stat-exp": "Work experiences",
+        "stat-certs": "Certifications",
+        "stat-years": "Years of study",
+        "profile-role": "Full-Stack · Microservices · AI",
+        "info-location": "Casablanca, Morocco",
+        "section-title-experience": "Professional experience",
+        "section-sub-experience": "My professional journey, from first internship to final-year project.",
+        "exp1-badge": "Latest experience",
+        "exp1-title": "Full-Stack Developer — Final-Year Internship (PFE)",
+        "exp1-duration": "6 months · 2026",
+        "exp1-company": "Banque Centrale Populaire — IT Dept. Commitments & Risks, Casablanca",
+        "exp1-desc": "Full-stack design of the \"File Monitoring App\", an automated monitoring platform for credit batch processing (Evolan system), replacing a manual Excel-based process with real-time tracking.",
+        "exp1-li1": "Built 6 Spring Batch jobs automating the parsing of thousands of anomaly lines previously handled manually in Excel.",
+        "exp1-li2": "Real-time anomaly detection instead of mid-morning, through a live dashboard built with React.",
+        "exp1-li3": "Implemented JWT security and full traceability of batch processing.",
+        "exp1-li4": "Result: better credit risk control for the bank.",
+        "exp2-title": "End-of-Year Internship — AI Developer",
+        "exp2-duration": "2 months",
+        "exp2-company": "Voom Digital — Casablanca",
+        "exp2-desc": "Contributed to the development of an intelligent avatar for a showroom: built a vector knowledge base and trained the conversational model.",
+        "exp3-title": "End-of-Year Internship — Web Developer",
+        "exp3-duration": "1 month",
+        "exp3-company": "Groupe Bennis — Casablanca",
+        "exp3-desc": "Developed a stock management application and a showcase website for the online presence of the Mobilium brand.",
+        "section-title-projects": "Projects",
+        "section-sub-projects": "A selection of academic and personal projects.",
+        "proj1-title": "Daily tracking application",
+        "proj1-desc": "Web application based on a microservices architecture combining three services: expense management, nutrition tracking and task management, for centralized and intuitive daily tracking.",
+        "proj2-title": "Streaming & recommendation platform",
+        "proj2-desc": "Search and follow movies, series and anime, with a recommendation engine based on user behavior.",
+        "proj3-title": "Mobile app for absence management",
+        "proj3-desc": "Intuitive Android app allowing teachers to manage student absences in a simplified way.",
         "section-title-skills": "Skills",
+        "section-sub-skills": "The technologies I use every day.",
         "skills-languages-title": "Languages",
         "skills-frameworks-title": "Frameworks",
         "skills-tools-title": "Tools",
+        "section-title-education": "Education",
+        "section-sub-education": "My academic background.",
+        "edu1-title": "Engineering degree — Computer Science & Networks",
+        "edu1-desc": "École Marocaine des Sciences de l'Ingénieur (EMSI) — Casablanca",
+        "edu2-title": "High School Diploma — Physical Sciences",
+        "edu2-desc": "Groupe Scolaire Addoha — Casablanca",
         "section-title-certifications": "Certifications",
-        "cert1-title": "Oracle Certified Foundations Associate – Java",
-        "cert1-meta": "Oracle · 2024",
-        "cert1-desc": "Introduction to core Java concepts: OOP, exception handling and clean coding practices.",
-        "cert2-title": "DevOps Foundations – CI/CD & Cloud Basics",
-        "cert2-meta": "LinkedIn Learning · 2023",
-        "cert2-desc": "Core concepts of continuous integration / continuous delivery, version control, automation and cloud deployment fundamentals.",
-        "cert3-title": "Introduction to Machine Learning",
-        "cert3-meta": "Coursera · 2023",
-        "cert3-desc": "Basics of supervised and unsupervised learning: regression, classification, model evaluation and ML pipelines.",
-        "cert-linkedin-text": "See all my certifications on LinkedIn",
-        "section-title-projects": "Main projects",
-        "proj1-title": "Expense tracking",
-        "proj1-meta": "Spring Boot · React · PostgreSQL",
-        "proj1-desc": "Web application to track and categorize daily expenses, with simple charts and monthly history.",
-        "proj2-title": "Streaming & recommendation platform",
-        "proj2-meta": "Spring Boot · React · Flask + ML",
-        "proj2-desc": "Search and follow movies, series and anime, with a recommendation engine based on user behavior.",
-        "proj3-title": "Mobile app for absence management",
-        "proj3-meta": "Flutter · Firebase",
-        "proj3-desc": "Android app for teachers in a school to record and consult students' absences.",
-        "proj4-title": "Intelligent avatar for showroom",
-        "proj4-meta": "Spring Boot · React · AI (NLP)",
-        "proj4-desc": "Conversation system for a showroom with a knowledge base and AI to answer clients' questions about products.",
+        "section-sub-certifications": "Continuous learning and professional certifications.",
+        "cert-oci-meta": "Oracle · Oct 2025",
+        "cert-docker-title": "Introduction to Containers: Docker, Kubernetes & OpenShift",
+        "cert-docker-meta": "IBM · Jun 2025",
+        "cert-azure-title": "Virtual Networks in Azure",
+        "cert-azure-meta": "Whizlabs · May 2025",
+        "cert-javaoop-title": "Introduction to Java and Object-Oriented Programming",
+        "cert-javaoop-meta": "University of Pennsylvania · Dec 2024",
+        "cert-react-title": "React Basics",
+        "cert-react-meta": "Meta · Dec 2024",
+        "cert-softskills-meta": "IBM · May 2024",
+        "cert-critical-meta": "IBM · May 2024",
+        "cert-unix-title": "The Unix Workshop",
+        "cert-unix-meta": "Johns Hopkins University · Mar 2024",
+        "cert-python-meta": "University of Michigan · Mar 2024",
+        "cert-unixwb-meta": "Johns Hopkins University · Mar 2024",
+        "cert-js-title": "JavaScript Interactivity",
+        "cert-js-meta": "University of Michigan · Jan 2024",
+        "cert-css3-meta": "University of Michigan · Jan 2024",
+        "cert-cpp-title": "Introduction to Object-Oriented Programming (C++)",
+        "cert-cpp-meta": "EPFL · Jan 2024",
+        "cert-html5-meta": "University of Michigan · Dec 2023",
+        "cert-webdev-meta": "UC Irvine · Apr 2023",
+        "cert-sql-meta": "University of Colorado Boulder · Apr 2023",
         "section-title-contact": "Contact",
+        "section-sub-contact": "Feel free to reach out, I reply quickly.",
         "contact-email-label": "Email",
         "contact-phone-label": "Phone",
         "contact-location-label": "Location",
         "contact-location-value": "Ain Borja, Casablanca",
         "contact-school-label": "School",
-        "footer-text": "© " + new Date().getFullYear() + " KASSID SAAD · Personal portfolio",
-        "cert-oci-title": "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
-        "cert-oci-meta": "Oracle · Issued Oct 2025 · Expires Oct 2027",
-        "cert-oci-desc": "Professional certification on DevOps concepts in Oracle Cloud Infrastructure: CI/CD, automation, monitoring, high availability and cloud deployment best practices.",
-
-        "cert-docker-title": "Introduction to Containers with Docker, Kubernetes and OpenShift",
-        "cert-docker-meta": "IBM · Issued Jun 2025",
-        "cert-docker-desc": "Practical introduction to containerization and orchestration using Docker, Kubernetes and OpenShift.",
-
-        "cert-azure-title": "Virtual Networks in Azure",
-        "cert-azure-meta": "Whizlabs · Issued May 2025",
-        "cert-azure-desc": "Fundamentals of virtual networks on Microsoft Azure: subnets, routing, VPNs and cloud network integration.",
-
-        "cert-javaoop-title": "Introduction to Java and Object-Oriented Programming",
-        "cert-javaoop-meta": "University of Pennsylvania · Issued Dec 2024",
-        "cert-javaoop-desc": "Java basics and OOP principles: classes, inheritance, polymorphism and control structures.",
-
-        "cert-react-title": "React Basics",
-        "cert-react-meta": "Meta · Issued Dec 2024",
-        "cert-react-desc": "Core React concepts: components, props, state, basic hooks and UI development.",
-
-        "cert-softskills-title": "People and Soft Skills for Professional and Personal Success",
-        "cert-softskills-meta": "IBM · Issued May 2024",
-        "cert-softskills-desc": "Communication, teamwork, leadership, conflict resolution and professional posture.",
-
-        "cert-critical-title": "Solving Problems with Creative and Critical Thinking",
-        "cert-critical-meta": "IBM · Issued May 2024",
-        "cert-critical-desc": "Approaches for solving complex problems using creativity and critical thinking.",
-
-        "cert-unix-title": "The Unix Workshop",
-        "cert-unix-meta": "Johns Hopkins University · Issued Mar 2024",
-        "cert-unix-desc": "Introduction to Unix: shell basics, scripting and file system management.",
-
-        "cert-python-title": "Programming for Everybody (Python)",
-        "cert-python-meta": "University of Michigan · Issued Mar 2024",
-        "cert-python-desc": "Python introduction: variables, loops, conditions and functions.",
-
-        "cert-unixwb-title": "The Unix Workbench",
-        "cert-unixwb-meta": "Johns Hopkins University · Issued Mar 2024",
-        "cert-unixwb-desc": "Advanced Unix scripts, tools and automation for developers.",
-
-        "cert-js-title": "JavaScript Interactivity",
-        "cert-js-meta": "University of Michigan · Issued Jan 2024",
-        "cert-js-desc": "DOM manipulation, events, animations and dynamic UI.",
-
-        "cert-css3-title": "Introduction to CSS3",
-        "cert-css3-meta": "University of Michigan · Issued Jan 2024",
-        "cert-css3-desc": "CSS selectors, layouts, colors, typography and responsive design.",
-
-        "cert-cpp-title": "Introduction to Object-Oriented Programming (C++)",
-        "cert-cpp-meta": "EPFL · Issued Jan 2024",
-        "cert-cpp-desc": "OOP with C++: classes, encapsulation, inheritance and polymorphism.",
-
-        "cert-html5-title": "Introduction to HTML5",
-        "cert-html5-meta": "University of Michigan · Issued Dec 2023",
-        "cert-html5-desc": "HTML5 structure, semantics, forms and best practices.",
-
-        "cert-webdev-title": "HTML, CSS and JavaScript for Web Developers",
-        "cert-webdev-meta": "UC Irvine · Issued Apr 2023",
-        "cert-webdev-desc": "Complete training in modern web development with HTML, CSS and JavaScript.",
-
-        "cert-sql-title": "The Structured Query Language (SQL)",
-        "cert-sql-meta": "University of Colorado Boulder · Issued Apr 2023",
-        "cert-sql-desc": "SQL basics: SELECT, INSERT, UPDATE, DELETE, JOINS and data manipulation.",
-
+        "footer-text": "Personal portfolio"
       }
     };
 
-    function applyLanguage(lang) {
-      const t = translations[lang];
-      Object.entries(t).forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) {
-          if (el.querySelector('span')) {
-            el.querySelector('span').textContent = text;
-          } else {
-            el.textContent = text;
+    /* ===== Typing effect ===== */
+    const typedRoles = {
+      fr: ["Ingénieur en Informatique", "Développeur Full-Stack", "Java · Spring Boot · React", "Architecture Microservices"],
+      en: ["Software Engineer", "Full-Stack Developer", "Java · Spring Boot · React", "Microservices Architecture"]
+    };
+
+    let currentLang = localStorage.getItem('portfolio-lang') || 'fr';
+    let typedTimeout = null;
+
+    function startTyping() {
+      const el = document.getElementById('typed-text');
+      const roles = typedRoles[currentLang];
+      clearTimeout(typedTimeout);
+
+      if (reducedMotion) {
+        el.textContent = roles[0];
+        return;
+      }
+
+      let roleIndex = 0, charIndex = 0, deleting = false;
+
+      function tick() {
+        const word = roles[roleIndex];
+        if (!deleting) {
+          charIndex++;
+          el.textContent = word.slice(0, charIndex);
+          if (charIndex === word.length) {
+            deleting = true;
+            typedTimeout = setTimeout(tick, 2000);
+            return;
           }
+          typedTimeout = setTimeout(tick, 65);
+        } else {
+          charIndex--;
+          el.textContent = word.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+          }
+          typedTimeout = setTimeout(tick, 32);
         }
-      });
-      document.documentElement.setAttribute("lang", lang);
+      }
+      tick();
     }
 
-    const langButtons = document.querySelectorAll(".lang-btn");
-    langButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const lang = btn.getAttribute("data-lang");
-        langButtons.forEach(b => b.classList.remove("lang-btn-active"));
-        btn.classList.add("lang-btn-active");
-        applyLanguage(lang);
+    /* ===== Language switch ===== */
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('portfolio-lang', lang);
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.documentElement.setAttribute('lang', lang);
+      startTyping();
+    }
+
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langButtons.forEach(b => b.classList.remove('lang-btn-active'));
+        btn.classList.add('lang-btn-active');
+        applyLanguage(btn.getAttribute('data-lang'));
       });
     });
 
-    /* Scroll to top button */
-    const scrollTopBtn = document.getElementById('scrollTop');
+    // Init language (restores saved choice)
+    langButtons.forEach(b => b.classList.toggle('lang-btn-active', b.getAttribute('data-lang') === currentLang));
+    applyLanguage(currentLang);
 
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('visible');
+    /* ===== Theme toggle (dark / light) ===== */
+    const themeToggle = document.getElementById('themeToggle');
+
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '☀️';
       } else {
-        scrollTopBtn.classList.remove('visible');
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
       }
+      localStorage.setItem('portfolio-theme', theme);
+    }
+
+    applyTheme(localStorage.getItem('portfolio-theme') || 'dark');
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      applyTheme(isLight ? 'dark' : 'light');
     });
 
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    /* Smooth scroll for internal links */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    /* ===== Scroll reveal ===== */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
       });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ===== Animated counters ===== */
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        counterObserver.unobserve(el);
+        const target = parseInt(el.dataset.target, 10);
+        if (reducedMotion) { el.textContent = target; return; }
+        const duration = 1400;
+        const start = performance.now();
+        function step(now) {
+          const p = Math.min((now - start) / duration, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    /* ===== Scroll progress + scroll-top + nav spy ===== */
+    const scrollProgress = document.getElementById('scrollProgress');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = ['about', 'experience', 'projects', 'skills', 'contact']
+      .map(id => document.getElementById(id));
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgress.style.width = (docHeight > 0 ? (scrollY / docHeight) * 100 : 0) + '%';
+      scrollTopBtn.classList.toggle('visible', scrollY > 400);
+
+      // Scroll spy
+      let current = sections[0];
+      sections.forEach(sec => {
+        if (sec && scrollY >= sec.offsetTop - 140) current = sec;
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('nav-link-active', link.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
     });
+
+    /* ===== Project card spotlight + tilt ===== */
+    if (!reducedMotion) {
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mx', x + 'px');
+          card.style.setProperty('--my', y + 'px');
+          const rx = ((y / rect.height) - 0.5) * -5;
+          const ry = ((x / rect.width) - 0.5) * 5;
+          card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+
+    /* ===== Particle network background ===== */
+    (function initParticles() {
+      if (reducedMotion) return;
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        const count = Math.min(70, Math.floor((w * h) / 22000));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: Math.random() * 1.6 + 0.6
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(52, 211, 153, 0.5)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 130) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = `rgba(16, 185, 129, ${0.14 * (1 - dist / 130)})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      draw();
+    })();
   </script>
 </body>
 </html>
